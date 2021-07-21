@@ -1,0 +1,35 @@
+name: CI-CD Pipeline
+
+# when a commit is pushed to main
+on:
+  push:
+    branches:
+      - main
+
+
+jobs: 
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      # setup project build, require .NET version 5
+      - name: Setup .Net 5
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '5.0.x'
+
+      # use NuGet to restore project dependancies
+      - name: Restore Dependancies
+        run: dotnet restore
+
+      # -c (configuration) set to Release and we already restored dependacies
+      - name: Build .Net app
+        run: dotnet build -c Release --no-restore
+
+      # run unit tests
+      # we have already built, no need to build again
+      - name: Run Unit Tests
+        run: dotnet test -c Release --no-build
