@@ -1,0 +1,9 @@
+C:\Users\Cpsta\source\repos\ProjectWebApp\DataAccess\obj\Debug\net5.0\DataAccess.csproj.AssemblyReference.cache
+C:\Users\Cpsta\source\repos\ProjectWebApp\DataAccess\obj\Debug\net5.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Cpsta\source\repos\ProjectWebApp\DataAccess\obj\Debug\net5.0\DataAccess.AssemblyInfoInputs.cache
+C:\Users\Cpsta\source\repos\ProjectWebApp\DataAccess\obj\Debug\net5.0\DataAccess.AssemblyInfo.cs
+C:\Users\Cpsta\source\repos\ProjectWebApp\DataAccess\obj\Debug\net5.0\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Cpsta\source\repos\ProjectWebApp\DataAccess\obj\Debug\net5.0\DataLib.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Cpsta\source\repos\ProjectWebApp\DataAccess\obj\Debug\net5.0\DataLib.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Cpsta\source\repos\ProjectWebApp\DataAccess\obj\Debug\net5.0\DataAccess.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Cpsta\source\repos\ProjectWebApp\DataAccess\obj\Debug\net5.0\DataAccess.MvcApplicationPartsAssemblyInfo.cache
