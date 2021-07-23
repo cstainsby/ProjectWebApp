@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "wsdWyM6I5iL3Z8+znE1h3rJgCC68+lYsMiwG4/f1DW3kuLSj70os4W//377STMSBuHgfHbJEGJ4lOLdt/Cc4aQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Cpsta\\source\\repos\\ProjectWebApp\\DataLibrary\\DataLibrary.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Cpsta\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.14\\microsoft.visualstudio.azure.containers.tools.targets.1.10.14.nupkg.sha512"
+  ],
+  "logs": []
+}
