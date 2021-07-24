@@ -33,14 +33,13 @@ namespace ProjectWebApp.Controllers
                     model.Id,
                     model.simName,
                     model.simDesc,
-                    model.gitUrl
+                    model.gitURL
                 );
-                return NotFound();
+
+                return View();
             }
 
-
-
-            return View();
+            return RedirectToAction("Index");
         }
     }
 }

@@ -19,6 +19,6 @@ namespace ProjectWebApp.Models
 
         [Display(Name="GitHub URL")]
         [DataType(DataType.Url)]
-        public string gitUrl { get; set; }
+        public string gitURL { get; set; }
     }
 }
