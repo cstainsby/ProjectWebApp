@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ProjectWebApp.Models;
+using DataAccess;         // import the data access project 
+using DataAccess.Logic;   // and its logic classes
 
 namespace ProjectWebApp.Controllers
 {
@@ -27,6 +29,12 @@ namespace ProjectWebApp.Controllers
             // prevent spoofing check
             if (ModelState.IsValid)
             {
+                SimulationProcessor.CreateSimulation(
+                    model.Id,
+                    model.simName,
+                    model.simDesc,
+                    model.gitUrl
+                );
                 return NotFound();
             }
 

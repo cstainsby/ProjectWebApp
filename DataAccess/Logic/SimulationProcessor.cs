@@ -22,12 +22,14 @@ namespace DataAccess.Logic
                 gitURL = gitURL
             };
 
-            return SqlDataAccess.SaveData(sql, data);
+            return SQLDataAccess.SaveData(sql, data);
         }
 
         public static List<SimulationModel> LoadSimulations()
         {
-            string sql = 
+            string sql = "Id, simName, simDesc, gitURL from dbo.Simulation;";
+
+            return SQLDataAccess.LoadData<SimulationModel>(sql);
         }
     }
 }

@@ -8,7 +8,7 @@ using System.Data;
 using System.Data.SqlClient;
 
 
-namespace DataAccess.DataAccess
+namespace DataAccess.Data
 {
     public static class SQLDataAccess
     {
