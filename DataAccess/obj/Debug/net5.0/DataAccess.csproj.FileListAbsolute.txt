@@ -36,3 +36,4 @@ C:\Users\Cpsta\source\repos\ProjectWebApp\DataAccess\obj\Debug\net5.0\DataAccess
 C:\Users\Cpsta\source\repos\ProjectWebApp\DataAccess\obj\Debug\net5.0\ref\DataAccess.dll
 C:\Users\Cpsta\source\repos\ProjectWebApp\DataAccess\obj\Debug\net5.0\DataAccess.pdb
 C:\Users\Cpsta\source\repos\ProjectWebApp\DataAccess\obj\Debug\net5.0\DataAccess.genruntimeconfig.cache
+C:\Users\Cpsta\source\repos\ProjectWebApp\DataAccess\obj\Debug\net5.0\DataAccess.csproj.AssemblyReference.cache

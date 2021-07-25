@@ -20,5 +20,10 @@ namespace ProjectWebApp.Models
         [Display(Name="GitHub URL")]
         [DataType(DataType.Url)]
         public string gitURL { get; set; }
+
+        public Simulation()
+        {
+
+        }
     }
 }

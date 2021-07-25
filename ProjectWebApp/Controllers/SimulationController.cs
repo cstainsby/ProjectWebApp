@@ -13,7 +13,7 @@ namespace ProjectWebApp.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            return View(SimulationProcessor.LoadSimulations());
         }
 
         // get form

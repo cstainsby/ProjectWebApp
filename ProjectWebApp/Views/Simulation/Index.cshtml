@@ -4,8 +4,25 @@
 @{
 }
 
+@model IEnumerable<ProjectWebApp.Models.Simulation>
+
 <h1>Simulation</h1>
 
 <a class="btn text-dark" asp-action="Create">
     Create
 </a>
+
+@foreach (var item in Model)
+{
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-secondary border-dark mb-3">
+        <div class="container">
+            <a class="navbar-brand" asp-area="" asp-controller="SimulationPage" asp-action="SimulationPage" asp-route-id="@item.Id">
+                <div class="row m-1 text-dark">
+                    <div class="col-sm-5 col-md-6">
+                        @Html.DisplayFor(modelItem => item.simName)
+                    </div>
+                </div>
+            </a>
+        </div>
+    </nav>
+} 
