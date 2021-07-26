@@ -380,5 +380,7 @@ C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectWebApp\bin\Debug\net5.0\DataAcc
 C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectWebApp\bin\Debug\net5.0\DataAccess.pdb
 C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectWebApp\obj\Debug\net5.0\Razor\Views\SimulationPage\About.cshtml.g.cs
 C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectWebApp\obj\Debug\net5.0\Razor\Views\SimulationPage\Code.cshtml.g.cs
-C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectWebApp\obj\Debug\net5.0\Razor\Views\SimulationPage\PlayPartial.cshtml.g.cs
 C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectWebApp\obj\Debug\net5.0\Razor\Views\SimulationPage\SimulationPage.cshtml.g.cs
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectWebApp\obj\Debug\net5.0\Razor\Views\SimulationPage\_PageMenuPartial.cshtml.g.cs
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectWebApp\obj\Debug\net5.0\Razor\Views\SimulationPage\_TitleBarPartial.cshtml.g.cs
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectWebApp\obj\Debug\net5.0\Razor\Views\SimulationPage\_PlayPartial.cshtml.g.cs

@@ -8,31 +8,27 @@
 @{
     ViewData["Title"] = "Simulation View";
 }
-<style>
-    canvas {
-        border: 1px solid black;
-    }
-</style>
 
-<h1>Title of Project</h1>
+<!--
+    model="Simulation" add to partial arguments to add model
+-->
 
-<canvas>
-    
-</canvas>
-
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <a class="btn" asp-controller="">Play</a>
-        </div>
-        <div class="col">
-            Column
-        </div>
-        <div class="col">
-            Column
-        </div>
-        <div class="col">
-            Column
-        </div>
-    </div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+    <partial name="_TitleBarPartial" />
+</head>
+<body>
+    <aside>
+        <partial name="_PageMenuPartial" />
+    </aside>
+    <main>
+        <partial name="_PlayPartial" />
+    </main>
+</body>
+</html>

@@ -8,11 +8,10 @@ namespace ProjectWebApp.Controllers
 {
     public class SimulationPageController : Controller
     {
-        /*public async Task<IActionResult> SimulationPage()
+        public IActionResult SimulationPage()
         {
-
-            return 
-        }*/
+            return View();
+        }
 
     }
 }
