@@ -22,22 +22,27 @@
             display: flex;
             transition: all 0.3s;
             color: #e0e0e0;
+            position: fixed;
+            left: 0px;
+            top: 55px;
         }
 
         #Sidebar-Wrapper {
-            background: #283739;
+            
+            background: #2c5d63;
             position: fixed;
             left: 10px;
             top: 66px;
             min-width: 250px;
             max-width: 250px;
             transition: all 0.3s;
+            
         }
 
         #Sidebar {
             text-decoration: none;
             list-style: none;
-            background: #2c5d63;
+            
             /* keep elements packed together within the wrapper */
             overflow: hidden;
             display: inline-block;
@@ -59,6 +64,16 @@
 
         #Sidebar .active {
             margin-left: -250px;
+        }
+
+        canvas {
+            border: 1px black;
+            left: 0px;
+            top: 60px;
+        }
+
+        #Main-Content-Wrapper {
+            background: #283739;
         }
     </style>
 </head>
@@ -94,17 +109,12 @@
                     </li>
                 </ul>
             </div>
-            <!-- Main content area -->
-            <div id="Main-Content-Wrapper">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-10">
-                            <a href="#" class="btn" id="sidebar-toggle">Toggle Sidebar View</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </nav>
+        <!-- Main content area -->
+        <div id="Main-Content-Wrapper">
+            <canvas>
+            </canvas>
+        </div>
     </div>
 
     <!-- jquery, When menu is toggled, change the view based on its current state e.g. expand/shrink -->
@@ -115,6 +125,7 @@
         });
     </script>
 
+    <script src="~/js/canvasSetup.js"></script>
     <!-- When it isnt -->
 </body>
 </html>
