@@ -16,19 +16,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <style>
-        canvas {
-            border: 1px solid black;
+        #Wrapper {
+            display: flex;
+            transition: all 0.3s;
+            color: #e0e0e0;
+        }
+
+        #Sidebar-Wrapper {
+            background: #283739;
+            position: fixed;
+            left: 10px;
+            top: 66px;
+            min-width: 250px;
+            max-width: 250px;
+            transition: all 0.3s;
+        }
+
+        #Sidebar {
+            text-decoration: none;
+            list-style: none;
+            background: #2c5d63;
+            /* keep elements packed together within the wrapper */
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .Sidebar-Header {
+            
+        }
+
+        #Sidebar div ul li {
+            list-style-type: none;
+            /*height: 50px;*/
+            color: #e0e0e0;
+        }
+
+        #Sidebar h2 {
+            padding-bottom: 30px;
+        }
+
+        #Sidebar .active {
+            margin-left: -250px;
         }
     </style>
-    <partial name="_TitleBarPartial" />
 </head>
 <body>
-    <aside>
-        <partial name="_PageMenuPartial" />
-    </aside>
-    <main>
-        <partial name="_PlayPartial" />
-    </main>
+    <div id="Wrapper">
+        <nav id="Sidebar">
+            <!-- Sidebar -->
+            <div id="Sidebar-Wrapper">
+                <div class="row" id="Sidebar-Header">
+                    <div class="col-6 col-sm-1"><i class="bx bx-menu" id="ViewToggle"></i></div>
+                    <div class="col-6 col-sm-6"><div>Title Of Project</div></div>
+                </div>
+                <ul>
+                    <li>
+                        <a class="btn" asp-action="PlayPartial">
+                            Play
+                        </a>
+                    </li>
+                    <li>
+                        <a class="btn" asp-action="About">
+                            About
+                        </a>
+                    </li>
+                    <li>
+                        <a class="btn" asp-action="Code">
+                            Code
+                        </a>
+                    </li>
+                    <li>
+                        <a class="btn" asp-action="PlayPartial">
+                            Settings
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Main content area -->
+            <div id="Main-Content-Wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-10">
+                            <a href="#" class="btn" id="sidebar-toggle">Toggle Sidebar View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- jquery, When menu is toggled, change the view based on its current state e.g. expand/shrink -->
+    <script>
+        $("sidebar-toggle").click(function (e) {
+            e.PreventDefault();
+            $("#Wrapper").toggleClass("MenuDisplayed");
+        });
+    </script>
+
+    <!-- When it isnt -->
 </body>
 </html>
