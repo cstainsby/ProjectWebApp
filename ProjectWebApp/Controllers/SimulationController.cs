@@ -11,6 +11,7 @@ namespace ProjectWebApp.Controllers
 {
     public class SimulationController : Controller
     {
+
         public IActionResult Index()
         {
             //SimulationProcessor.LoadSimulations()
@@ -27,9 +28,10 @@ namespace ProjectWebApp.Controllers
         [HttpPost]
         public IActionResult Create(Simulation model)
         {
+
             // prevent spoofing check
             if (ModelState.IsValid)
-            {
+            { 
                 SimulationProcessor.CreateSimulation(
                     model.Id,
                     model.simName,

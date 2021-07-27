@@ -6,20 +6,27 @@ using Dapper;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-
+using Microsoft.Extensions.Configuration;
 
 namespace DataAccess.Data
 {
-    public static class SQLDataAccess
+    public class SQLDataAccess
     {
-        // find and return the connection string to the db
-        // by default connect set to "ProjectSQLDB"
-        public static string GetConnectionString(string connect = "ProjectSQLDB")
+        private readonly IConfiguration _configuration;
+
+        public SQLDataAccess(IConfiguration configuration)
         {
-            return ConfigurationManager.ConnectionStrings[connect].ConnectionString;
+            _configuration = configuration;
         }
 
-        public static List<T> LoadData<T>(string sql)
+        // find and return the connection string to the db
+        // by default connect set to "ProjectSQLDB"
+        public string GetConnectionString(string connect = "ProjectDB")
+        {
+            return _configuration.GetConnectionString(connect);
+        }
+
+        public List<T> LoadData<T>(string sql)
         {
             using (IDbConnection cnn = new SqlConnection(GetConnectionString()))
             {
@@ -28,7 +35,7 @@ namespace DataAccess.Data
         }
 
         // data that is passed in will be saved to the db
-        public static int SaveData<T>(string sql, T data)
+        public int SaveData<T>(string sql, T data)
         {
             using (IDbConnection cnn = new SqlConnection(GetConnectionString()))
             {
