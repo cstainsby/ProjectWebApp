@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace DataAccess.Logic
 {
-    public class SimulationProcessor : IProcessor
+    public class SimulationProcessor : IProcessor<SimulationModel>
     {
         private readonly IConfiguration _configuration;
 
@@ -59,29 +59,6 @@ namespace DataAccess.Logic
             string sql = "UPDATE dbo.Simulation SET simName = @simName, simDesc = @simDesc, gitURL = @gitURL WHERE Id = @Id";
 
             return await SQLDataAccess.EditData<SimulationModel>(_configuration.GetConnectionString("ProjectDB"), sql, obj);
-        }
-
-        public int CreateSimulation(int Id, string simName, string simDesc, string gitURL)
-        {
-            string sql = @"insert into dbo.Simulation (Id, simName, simDesc, gitURL)
-                           values (@Id, @simName, @simDesc, @gitURL);";
-
-            SimulationModel data = new SimulationModel
-            {
-                Id = Id,
-                simName = simName,
-                simDesc = simDesc,
-                gitURL = gitURL
-            };
-
-            return SQLDataAccess.SaveData(sql, data);
-        }
-
-        public List<SimulationModel> LoadSimulations()
-        {
-            string sql = "Id, simName, simDesc, gitURL from dbo.Simulation;";
-
-            return SQLDataAccess.LoadData<SimulationModel>(sql);
         }
     }
 }

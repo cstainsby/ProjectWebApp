@@ -14,13 +14,13 @@ namespace DataAccess.Logic
     public interface IProcessor<T> where T : class
     {
         // each processor will have a config 
-        //IConfiguration config { get; set; }
+        //public IConfiguration _configuration { get; }
 
         // get item of type T by Id
         Task<T> GetById(int Id);
 
         // retrieve all items of type T within the db 
-        Task<IReadOnlyList<T>> GetAllAsync();
+        Task<IEnumerable<T>> GetAllAsync();
 
         // create a new item of type T within db given Id
         Task<int> CreateAsync(T obj);

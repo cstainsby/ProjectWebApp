@@ -6,11 +6,17 @@ using System.Threading.Tasks;
 using ProjectWebApp.Models;
 using DataAccess;         // import the data access project 
 using DataAccess.Logic;   // and its logic classes
+using DataAccess.Models;
 
 namespace ProjectWebApp.Controllers
 {
     public class SimulationController : Controller
     {
+        private readonly SimulationProcessor processor;
+        public SimulationController(SimulationProcessor processor)
+        {
+            this.processor = processor;
+        }
 
         public IActionResult Index()
         {
@@ -26,20 +32,20 @@ namespace ProjectWebApp.Controllers
 
         // when sending data from the form use this method
         [HttpPost]
-        public IActionResult Create(Simulation model)
+        public async Task<IActionResult> Create(Simulation model)
         {
-
             // prevent spoofing check
             if (ModelState.IsValid)
-            { 
-                SimulationProcessor.CreateSimulation(
-                    model.Id,
-                    model.simName,
-                    model.simDesc,
-                    model.gitURL
-                );
+            {
+                SimulationModel data = new SimulationModel
+                {
+                    Id = model.Id,
+                    simName = model.simName,
+                    simDesc = model.simDesc,
+                    gitURL = model.gitURL
+                };
 
-                return View();
+                return View(await processor.CreateAsync(data));
             }
 
             return RedirectToAction("Index");
