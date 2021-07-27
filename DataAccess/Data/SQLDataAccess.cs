@@ -10,36 +10,32 @@ using Microsoft.Extensions.Configuration;
 
 namespace DataAccess.Data
 {
-    public class SQLDataAccess
+    public static class SQLDataAccess
     {
-        private readonly IConfiguration _configuration;
-
-        public SQLDataAccess(IConfiguration configuration)
+        // pull all database entries of type T and return them as a list
+        public static async Task<IEnumerable<T>> LoadData<T>(string cnnString, string sql)
         {
-            _configuration = configuration;
-        }
-
-        // find and return the connection string to the db
-        // by default connect set to "ProjectSQLDB"
-        public string GetConnectionString(string connect = "ProjectDB")
-        {
-            return _configuration.GetConnectionString(connect);
-        }
-
-        public List<T> LoadData<T>(string sql)
-        {
-            using (IDbConnection cnn = new SqlConnection(GetConnectionString()))
+            using (IDbConnection cnn = new SqlConnection(cnnString))
             {
-                return cnn.Query<T>(sql).ToList();
+                return await cnn.QueryAsync<T>(sql);
+            }
+        }
+
+        // overloaded LoadData to find a specific entry rather than pulling all db entries
+        public static async Task<T> LoadData<T>(string cnnString, string sql, T obj)
+        {
+            using (IDbConnection cnn = new SqlConnection(cnnString))
+            {
+                return await cnn.QuerySingleOrDefaultAsync<T>(sql, obj);
             }
         }
 
         // data that is passed in will be saved to the db
-        public int SaveData<T>(string sql, T data)
+        public static async Task<int> EditData<T>(string cnnString, string sql, T data)
         {
-            using (IDbConnection cnn = new SqlConnection(GetConnectionString()))
+            using (IDbConnection cnn = new SqlConnection(cnnString))
             {
-                return cnn.Execute(sql, data);
+                return await cnn.ExecuteAsync(sql, data);
             }
         }
     }
