@@ -18,11 +18,12 @@ namespace ProjectWebApp.Controllers
             this.processor = processor;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            //SimulationProcessor.LoadSimulations()
-            return View();
+            return View(await processor.GetAllAsync());
         }
+
+
 
         // get form
         public IActionResult Create()
