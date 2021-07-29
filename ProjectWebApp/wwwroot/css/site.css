@@ -51,6 +51,23 @@ button.accept-policy {
   line-height: inherit;
 }
 
+/* CSS color pallete */
+.first-color {
+    background: #283739;
+}
+
+.second-color {
+    background: #2c5d63;
+}
+
+.third-color {
+    background: #a2c11c;
+}
+
+.fourth-color {
+    background: #e0e0e0;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {

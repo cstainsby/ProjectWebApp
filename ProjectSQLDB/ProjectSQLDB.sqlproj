@@ -56,5 +56,23 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="dbo" />
+    <Folder Include="dbo\Tables" />
+    <Folder Include="dbo\PublishLocations" />
+    <Folder Include="dbo\Views" />
+    <Folder Include="dbo\StoredProcedures" />
+    <Folder Include="dbo\Compares" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\Simulation.sql" />
+    <Build Include="dbo\Views\SimulationView.sql" />
+    <Build Include="dbo\StoredProcedures\spSimulation_FliterBySimName.sql" />
+    <Build Include="dbo\StoredProcedures\spSimulation_GetAll.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="dbo\PublishLocations\LocalProjectDB.publish.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="ProjectSQLDB.refactorlog" />
   </ItemGroup>
 </Project>
