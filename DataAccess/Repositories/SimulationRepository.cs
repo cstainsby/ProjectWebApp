@@ -8,11 +8,11 @@ using Microsoft.Extensions.Configuration;
 
 namespace DataAccess.Logic
 {
-    public class SimulationProcessor : IProcessor<SimulationModel>
+    public class SimulationRepository : ISimulationRepository<SimulationModel>
     {
         private readonly IConfiguration _configuration;
 
-        public SimulationProcessor(IConfiguration configuration)
+        public SimulationRepository(IConfiguration configuration)
         {
             _configuration = configuration;
         }
@@ -30,14 +30,8 @@ namespace DataAccess.Logic
         public async Task<IEnumerable<SimulationModel>> GetAllAsync()
         {
             string sql = "SELECT * FROM dbo.Simulation";
-            var SimEnumerable = await SQLDataAccess.LoadData<SimulationModel>(_configuration.GetConnectionString("ProjectDB"), sql);
-            IList<>
 
-            foreach(var item in SimEnumerable)
-            {
-
-            }
-            return 
+            return await SQLDataAccess.LoadData<SimulationModel>(_configuration.GetConnectionString("ProjectDB"), sql);
         }
 
         // create a new item of type T within db given Id
@@ -58,12 +52,6 @@ namespace DataAccess.Logic
             return await SQLDataAccess.EditData<SimulationModel>(_configuration.GetConnectionString("ProjectDB"), sql, delObj);
         }
 
-        // update an items contents within db given Id
-        public async Task<int> UpdateAsync(SimulationModel obj)
-        {
-            string sql = "UPDATE dbo.Simulation SET simName = @simName, simDesc = @simDesc, gitURL = @gitURL WHERE Id = @Id";
-
-            return await SQLDataAccess.EditData<SimulationModel>(_configuration.GetConnectionString("ProjectDB"), sql, obj);
-        }
+        
     }
 }

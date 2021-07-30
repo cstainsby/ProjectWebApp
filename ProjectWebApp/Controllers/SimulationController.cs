@@ -12,15 +12,16 @@ namespace ProjectWebApp.Controllers
 {
     public class SimulationController : Controller
     {
-        private readonly SimulationProcessor processor;
-        public SimulationController(SimulationProcessor processor)
+        private readonly SimulationRepository repository;
+        public SimulationController(SimulationRepository repository)
         {
-            this.processor = processor;
+            this.repository = repository;
         }
 
         public async Task<IActionResult> Index()
         {
-            return View(await processor.GetAllAsync());
+            ViewData["Simulation Data"] = await repository.GetAllAsync();
+            return View();
         }
 
 
@@ -46,7 +47,7 @@ namespace ProjectWebApp.Controllers
                     gitURL = model.gitURL
                 };
 
-                return View(await processor.CreateAsync(data));
+                return View(await repository.CreateAsync(data));
             }
 
             return RedirectToAction("Index");

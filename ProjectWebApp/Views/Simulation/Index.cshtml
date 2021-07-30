@@ -4,7 +4,7 @@
 @{
 }
 
-@model IEnumerable<ProjectWebApp.Models.Simulation>
+@model IEnumerable<DataAccess.Models.SimulationModel>
 
 <h1>Simulation</h1>
 
@@ -15,3 +15,10 @@
 <a class="btn text-black-50" asp-controller="SimulationPage" asp-action="SimulationPage">
     To Sim
 </a>
+
+@foreach(var Simulation in (IEnumerable<DataAccess.Models.SimulationModel>)ViewData["Simulation Data"])
+            {
+                <tr>
+                    <td>@Simulation.simName</td>
+                </tr>
+            }

@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
+using DataAccess.Models;
 
 /*
  * define this interface with generic T holding exclusivley objects
@@ -11,10 +13,10 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Logic
 {
-    public interface IProcessor<T> where T : class
+    public interface ISimulationRepository <T> where T : class
     {
         // each processor will have a config 
-        //public IConfiguration _configuration { get; }
+        
 
         // get item of type T by Id
         Task<T> GetById(int Id);
@@ -28,7 +30,7 @@ namespace DataAccess.Logic
         // delete an item of type T within db given Id
         Task<int> DeleteAsync(int Id);
 
-        // update an items contents within db given Id
-        Task<int> UpdateAsync(T obj);
+        // Find 
+        //Task<IEnumerable<T>> Find(Expression<Func<T, bool>> expression);
     }
 }

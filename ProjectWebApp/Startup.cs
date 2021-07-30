@@ -26,7 +26,7 @@ namespace ProjectWebApp
         {
             services.AddControllersWithViews();
 
-            services.AddSingleton<SimulationProcessor>();
+            services.AddSingleton<SimulationRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
