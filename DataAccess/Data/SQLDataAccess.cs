@@ -8,6 +8,11 @@ using System.Data;
 using System.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 
+/*
+ * This class handles all interactions with the database
+ * It takes any model as a generic and executes the passed in "sql" command given a connection string
+ */
+
 namespace DataAccess.Data
 {
     public static class SQLDataAccess

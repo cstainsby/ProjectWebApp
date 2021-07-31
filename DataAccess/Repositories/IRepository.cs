@@ -4,6 +4,10 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
+/*
+ * This interface will define funciton prototypes for all standard functions that should be in a repository
+ */
+
 namespace DataAccess.Repositories
 {
     interface IRepository<T> where T : class
