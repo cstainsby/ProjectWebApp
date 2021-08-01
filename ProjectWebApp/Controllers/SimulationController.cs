@@ -5,15 +5,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using ProjectWebApp.Models;
 using DataAccess;         // import the data access project 
-using DataAccess.Logic;   // and its logic classes
+using DataAccess.Repositories;   // and its logic classes
 using DataAccess.Models;
 
 namespace ProjectWebApp.Controllers
 {
     public class SimulationController : Controller
     {
-        private readonly SimulationRepository repository;
-        public SimulationController(SimulationRepository repository)
+        private readonly Repository<SimulationModel> repository;
+        public SimulationController(Repository<SimulationModel> repository)
         {
             this.repository = repository;
         }
@@ -47,7 +47,7 @@ namespace ProjectWebApp.Controllers
                     gitURL = model.gitURL
                 };
 
-                return View(await repository.CreateAsync(data));
+                return View(await repository.AddAsync(data));
             }
 
             return RedirectToAction("Index");

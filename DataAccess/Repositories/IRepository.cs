@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Repositories
 {
-    interface IRepository<T> where T : class
+    public interface IRepository<T> where T : class
     {
         Task<T> GetByIdAsync(int Id);
         Task<IEnumerable<T>> GetAllAsync();

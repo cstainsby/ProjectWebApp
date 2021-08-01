@@ -11,26 +11,10 @@ using DataAccess.Models;
  * This will be implemented by all other processors
  */
 
-namespace DataAccess.Logic
+namespace DataAccess.Repositories
 {
-    public interface ISimulationRepository <T> where T : class
+    public interface ISimulationRepository : IRepository<SimulationModel>
     {
-        // each processor will have a config 
         
-
-        // get item of type T by Id
-        Task<T> GetById(int Id);
-
-        // retrieve all items of type T within the db 
-        Task<IEnumerable<T>> GetAllAsync();
-
-        // create a new item of type T within db given Id
-        Task<int> CreateAsync(T obj);
-
-        // delete an item of type T within db given Id
-        Task<int> DeleteAsync(int Id);
-
-        // Find 
-        //Task<IEnumerable<T>> Find(Expression<Func<T, bool>> expression);
     }
 }
