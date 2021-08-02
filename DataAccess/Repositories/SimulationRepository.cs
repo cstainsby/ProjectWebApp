@@ -10,8 +10,9 @@ namespace DataAccess.Repositories
 {
     public class SimulationRepository : Repository<SimulationModel>, ISimulationRepository
     {
-        public SimulationRepository(IConfiguration configuration, string dboContext) : base(configuration, dboContext)
+        public SimulationRepository(string cnnString, string dboContext) : base(cnnString, dboContext)
         {
+
         }
 
     }

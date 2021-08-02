@@ -10,7 +10,7 @@ using Xunit;
 
 namespace ProjectUnitTests.Logic
 {
-    public class SimulationProcessorTest
+    public class RepositoryTest
     {
         /*[Theory]
         [InlineData("FluidSim", "words w0rds words", "https://github.com/cstainsby/FluidSimulator")]
@@ -22,5 +22,10 @@ namespace ProjectUnitTests.Logic
                 mock.Mock<SQLDataAccess>(); 
             }
         }*/
+
+        public void CreateSimulation_ThrowsException()
+        {
+
+        }
     }
 }
