@@ -20,6 +20,8 @@ namespace DataAccess.Repositories
             get { return _transaction.Connection; } 
         }
 
+        protected string _type { get; set; }  // used in the generic repo functions to build sql statements 
+
         public AbstractRepository(IDbTransaction dbTransaction)
         {
             _transaction = dbTransaction;

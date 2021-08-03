@@ -24,7 +24,7 @@ namespace DataAccess.Repositories
         // retrieve specific item within given Id
         public async Task<T> GetByIdAsync(int Id)
         {
-            string sql = "SELECT * FROM dbo." + typeof(T) + "WHERE Id = @Id";
+            string sql = "SELECT * FROM dbo." + _type + " WHERE Id = @Id";
 
             return await _connection.QuerySingleOrDefaultAsync
                 (
@@ -37,7 +37,7 @@ namespace DataAccess.Repositories
         // retrieve all items of type T within the db 
         public async Task<IEnumerable<T>> GetAllAsync()
         {
-            string sql = "SELECT * FROM dbo." + typeof(T);
+            string sql = "SELECT * FROM dbo." + _type;
 
             return await _connection.QueryAsync<T>(sql);
         }
@@ -50,7 +50,7 @@ namespace DataAccess.Repositories
                 throw new ArgumentNullException("entity");
             }
 
-            string sql = @"INSERT INTO dbo." + typeof(T) + "(Id, simName, simDesc, gitURL) VALUES (@Id, @simName, @simDesc, @gitURL);";
+            string sql = @"INSERT INTO dbo." + _type + " (Id, simName, simDesc, gitURL) VALUES (@Id, @simName, @simDesc, @gitURL);";
 
             return await _connection.ExecuteAsync
                 (
@@ -63,7 +63,7 @@ namespace DataAccess.Repositories
         // delete an item of type T within db given Id
         public async Task<int> RemoveAsync(int Id)
         {
-            string sql = "DELETE FROM dbo." + typeof(T) + "WHERE Id = @Id";
+            string sql = "DELETE FROM dbo." + _type + " WHERE Id = @Id";
 
             return await _connection.ExecuteAsync
                 (

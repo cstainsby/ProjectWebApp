@@ -12,6 +12,7 @@ namespace DataAccess.Repositories
     {
         public SimulationRepository(IDbTransaction _transaction) : base(_transaction)
         {
+            _type = "Simulation";
         }
     }
 }
