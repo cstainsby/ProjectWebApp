@@ -27,7 +27,6 @@ namespace DataAccess.Repositories
         public ISimulationRepository SimulationRepo 
         {
             get{ return _simRepo ?? (_simRepo = new SimulationRepository(_dbTransaction)); }
-            private set {; } 
         }
 
         void IUnitOfWork.Save()

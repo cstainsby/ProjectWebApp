@@ -4,58 +4,73 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using DataAccess.Models;
-using DataAccess.Data;
 using Dapper;
+using System.Data;
 
 /*
  * This class implements all of the generic functions outlined in IRepository
  * It will treat the model it is working with as a generic T 
+ * It will inherit the abstract repository 
  */
 
 namespace DataAccess.Repositories
 {
-    public class Repository<T> : IRepository<T> where T : class
+    internal class Repository<T> : AbstractRepository, IRepository<T> where T : Model
     {
-        protected readonly string cnnString;               // connection string to the projects DB, string stored in appsettings.json
-        protected string dboContext;                       // designates which dbo to interface with
-
-        public Repository(string cnnString, string dboContext)
+        public Repository(IDbTransaction _transaction) : base(_transaction)
         {
-            this.cnnString = cnnString;
-            this.dboContext = dboContext;
         }
         
+        // retrieve specific item within given Id
         public async Task<T> GetByIdAsync(int Id)
         {
-            string sql = "SELECT * FROM dbo." + dboContext + "WHERE Id = @Id";
+            string sql = "SELECT * FROM dbo." + typeof(T) + "WHERE Id = @Id";
 
-            T entry = new T();
-
-            return await SQLDataAccess.LoadData<T>(cnnString, sql, entry);
+            return await _connection.QuerySingleOrDefaultAsync
+                (
+                sql, 
+                param: new { Id = Id }, 
+                transaction: _transaction
+                );
         }
 
         // retrieve all items of type T within the db 
         public async Task<IEnumerable<T>> GetAllAsync()
         {
-            string sql = "SELECT * FROM dbo." + dboContext;
+            string sql = "SELECT * FROM dbo." + typeof(T);
 
-            return await SQLDataAccess.LoadData<T>(cnnString, sql);
+            return await _connection.QueryAsync<T>(sql);
         }
 
         // create a new item of type T within db given Id
         public async Task<int> AddAsync(T entity)
         {
-            string sql = @"INSERT INTO dbo." + dboContext + "(Id, simName, simDesc, gitURL) VALUES (@Id, @simName, @simDesc, @gitURL);";
+            if(entity == null)
+            {
+                throw new ArgumentNullException("entity");
+            }
 
-            return await SQLDataAccess.EditData<T>(cnnString, sql, entity);
+            string sql = @"INSERT INTO dbo." + typeof(T) + "(Id, simName, simDesc, gitURL) VALUES (@Id, @simName, @simDesc, @gitURL);";
+
+            return await _connection.ExecuteAsync
+                (
+                sql,
+                param: new { Id = entity.Id },
+                transaction: _transaction
+                );
         }
 
         // delete an item of type T within db given Id
-        public async Task<int> RemoveAsync(T entity)
+        public async Task<int> RemoveAsync(int Id)
         {
-            string sql = "DELETE FROM dbo." + dboContext + "WHERE Id = @Id";
+            string sql = "DELETE FROM dbo." + typeof(T) + "WHERE Id = @Id";
 
-            return await SQLDataAccess.EditData<T>(cnnString, sql, entity);
+            return await _connection.ExecuteAsync
+                (
+                sql,
+                param: new { Id = Id },
+                transaction: _transaction
+                );
         }
 
         /*public async Task<T> FindAsync(Expression<Func<T, bool>> expression)

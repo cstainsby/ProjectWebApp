@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DataAccess.Models;
-using DataAccess.Data;
 using Microsoft.Extensions.Configuration;
 using System.Data;
 

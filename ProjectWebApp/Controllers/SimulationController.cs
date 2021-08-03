@@ -7,23 +7,31 @@ using ProjectWebApp.Models;
 using DataAccess;         // import the data access project 
 using DataAccess.Repositories;   // and its logic classes
 using DataAccess.Models;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace ProjectWebApp.Controllers
 {
     public class SimulationController : Controller
     {
-        private readonly Repository<SimulationModel> repository;
-        public SimulationController(Repository<SimulationModel> repository)
+        private ISimulationRepository simulationRepository;
+
+        public SimulationController()
         {
-            using (var unitWork = new UnitOfWork())
-            {
-                this.repository = repository;
-            }
+            // build a configuration to access connection strings
+            IConfiguration configuration = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json")
+                .Build();
+
+            // using the unit of work object and the connection string store the repo within the Controller
+            var unitWork = new UnitOfWork(configuration.GetConnectionString("ProjectDB"));
+            simulationRepository = unitWork.SimulationRepo;
         }
 
         public async Task<IActionResult> Index()
         {
-            ViewData["Simulation Data"] = await repository.GetAllAsync();
+            ViewData["Simulation Data"] = await simulationRepository.GetAllAsync();
             return View();
         }
 
@@ -50,7 +58,7 @@ namespace ProjectWebApp.Controllers
                     gitURL = model.gitURL
                 };
 
-                return View(await repository.AddAsync(data));
+                return View(await simulationRepository.AddAsync(data));
             }
 
             return RedirectToAction("Index");
