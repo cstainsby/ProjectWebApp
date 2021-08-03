@@ -15,7 +15,10 @@ namespace ProjectWebApp.Controllers
         private readonly Repository<SimulationModel> repository;
         public SimulationController(Repository<SimulationModel> repository)
         {
-            this.repository = repository;
+            using (var unitWork = new UnitOfWork())
+            {
+                this.repository = repository;
+            }
         }
 
         public async Task<IActionResult> Index()
