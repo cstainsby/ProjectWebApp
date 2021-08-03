@@ -5,15 +5,14 @@ using System.Threading.Tasks;
 using DataAccess.Models;
 using DataAccess.Data;
 using Microsoft.Extensions.Configuration;
+using System.Data;
 
 namespace DataAccess.Repositories
 {
-    public class SimulationRepository : Repository<SimulationModel>, ISimulationRepository
+    internal class SimulationRepository : Repository<SimulationModel>, ISimulationRepository
     {
-        public SimulationRepository(string cnnString, string dboContext) : base(cnnString, dboContext)
+        public SimulationRepository(IDbTransaction _transaction) : base(_transaction)
         {
-
         }
-
     }
 }

@@ -18,6 +18,6 @@ namespace DataAccess.Repositories
 
         Task<int> AddAsync(T entity);
         //void AddRange();
-        Task<int> RemoveAsync(T entity);
+        Task<int> RemoveAsync(int Id);
     }
 }
