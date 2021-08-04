@@ -4,8 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Autofac.Extras.Moq;
-using DataAccess.Logic;
-using DataAccess.Data;
 using Xunit;
 
 namespace ProjectUnitTests.Logic
