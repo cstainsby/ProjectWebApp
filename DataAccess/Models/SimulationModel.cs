@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Models
 {
-    public class SimulationModel : Model
+    public class SimulationModel : AbstractModel
     {
         public override int Id { get; set; }
         public string simName { get; set; }

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Models
 {
-    public abstract class Model
+    public abstract class AbstractModel
     {
         public abstract int Id { get; set; }
     }

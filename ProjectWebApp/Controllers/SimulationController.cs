@@ -20,8 +20,8 @@ namespace ProjectWebApp.Controllers
         {
             // build a configuration to access connection strings
             IConfiguration configuration = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json")
+                .SetBasePath(env)
+                .AddJsonFile("../appsettings.json")
                 .Build();
 
             // using the unit of work object and the connection string store the repo within the Controller
