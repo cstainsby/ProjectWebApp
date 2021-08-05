@@ -5,24 +5,37 @@ using System.Linq;
 using System.Threading.Tasks;
 using ProjectWebApp.Models;
 using DataAccess;         // import the data access project 
-using DataAccess.Logic;   // and its logic classes
+using DataAccess.Repositories;   // and its logic classes
 using DataAccess.Models;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace ProjectWebApp.Controllers
 {
     public class SimulationController : Controller
     {
-        private readonly SimulationProcessor processor;
-        public SimulationController(SimulationProcessor processor)
+        private ISimulationRepository simulationRepository;
+
+        public SimulationController()
         {
-            this.processor = processor;
+            // build a configuration to access connection strings
+            IConfiguration configuration = new ConfigurationBuilder()
+                .SetBasePath(env)
+                .AddJsonFile("../appsettings.json")
+                .Build();
+
+            // using the unit of work object and the connection string store the repo within the Controller
+            var unitWork = new UnitOfWork(configuration.GetConnectionString("ProjectDB"));
+            simulationRepository = unitWork.SimulationRepo;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            //SimulationProcessor.LoadSimulations()
+            ViewData["Simulation Data"] = await simulationRepository.GetAllAsync();
             return View();
         }
+
+
 
         // get form
         public IActionResult Create()
@@ -45,7 +58,7 @@ namespace ProjectWebApp.Controllers
                     gitURL = model.gitURL
                 };
 
-                return View(await processor.CreateAsync(data));
+                return View(await simulationRepository.AddAsync(data));
             }
 
             return RedirectToAction("Index");
