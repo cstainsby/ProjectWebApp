@@ -55,17 +55,17 @@ namespace DataAccess.Repositories
         {
             // when called to dispose call the dsiposeHelper to delete the repository
             // then request that during object cleanup later that the destructor not be called(it has already been deleted)
-            disposeHelper(true);
+            DisposeHelper(true);
             GC.SuppressFinalize(this); 
         }
 
         ~UnitOfWork()
         {
             // destructor helper function
-            disposeHelper(false);
+            DisposeHelper(false);
         }
 
-        private void disposeHelper(bool toBeDisposed)
+        private void DisposeHelper(bool toBeDisposed)
         {
             // this function helps in the destruction of the current repo 
             if (!_disposed)
