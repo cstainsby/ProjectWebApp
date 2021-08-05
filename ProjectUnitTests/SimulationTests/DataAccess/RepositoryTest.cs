@@ -29,7 +29,7 @@ namespace ProjectUnitTests.Repositories
                     .Setup(x => x.SimulationRepo.GetAllAsync())
                     .ReturnsAsync(GetSampleSimulations());
 
-                var cls = mock.Create<;
+                var cls = mock.Create<Repository>;
                 var expected = GetSampleSimulations();
 
                 var actual = await cls.

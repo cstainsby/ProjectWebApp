@@ -39,23 +39,9 @@ namespace DataAccess.Repositories
         {
             string sql = "SELECT * FROM dbo." + _type;
 
-            return await _connection.QueryAsync<T>(sql);
-        }
-
-        // create a new item of type T within db given Id
-        public async Task<int> AddAsync(T entity)
-        {
-            if(entity == null)
-            {
-                throw new ArgumentNullException("entity");
-            }
-
-            string sql = @"INSERT INTO dbo." + _type + " (Id, simName, simDesc, gitURL) VALUES (@Id, @simName, @simDesc, @gitURL);";
-
-            return await _connection.ExecuteAsync
+            return await _connection.QueryAsync<T>
                 (
                 sql,
-                param: new { Id = entity.Id },
                 transaction: _transaction
                 );
         }
@@ -72,10 +58,5 @@ namespace DataAccess.Repositories
                 transaction: _transaction
                 );
         }
-
-        /*public async Task<T> FindAsync(Expression<Func<T, bool>> expression)
-        {
-            string sql = ""
-        }*/
     }
 }

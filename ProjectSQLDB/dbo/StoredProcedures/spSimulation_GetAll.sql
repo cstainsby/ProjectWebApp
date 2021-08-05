@@ -9,7 +9,7 @@ AS
 begin
 	set nocount on;
 
-	SELECT [SimId], [simName], [simDesc], [gitUrl]
+	SELECT [Id], [simName], [simDesc], [gitUrl]
 	from dbo.Simulation;
 end
 RETURN 0

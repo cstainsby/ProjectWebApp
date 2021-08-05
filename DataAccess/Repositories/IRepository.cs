@@ -16,7 +16,6 @@ namespace DataAccess.Repositories
         Task<IEnumerable<T>> GetAllAsync();
         //Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> expression);
 
-        Task<int> AddAsync(T entity);
         //void AddRange();
         Task<int> RemoveAsync(int Id);
     }

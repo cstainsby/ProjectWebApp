@@ -8,7 +8,7 @@ CREATE PROCEDURE [dbo].[spSimulation_FliterBySimName]
 	@simName nvarchar(50)
 AS
 begin
-	SELECT [SimId], [simName], [simDesc], [gitUrl]
+	SELECT [Id], [simName], [simDesc], [gitUrl]
 	FROM dbo.Simulation
 	WHERE simName = @simName;
 end

@@ -16,7 +16,7 @@
     To Sim
 </a>
 
-@foreach(var Simulation in (IEnumerable<DataAccess.Models.SimulationModel>)ViewData["Simulation Data"])
+@foreach(var Simulation in Model)
             {
                 <tr>
                     <td>@Simulation.simName</td>

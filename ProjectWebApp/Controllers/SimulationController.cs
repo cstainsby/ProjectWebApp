@@ -8,7 +8,6 @@ using DataAccess;         // import the data access project
 using DataAccess.Repositories;   // and its logic classes
 using DataAccess.Models;
 using Microsoft.Extensions.Configuration;
-using System.IO;
 
 namespace ProjectWebApp.Controllers
 {
@@ -20,8 +19,7 @@ namespace ProjectWebApp.Controllers
         {
             // build a configuration to access connection strings
             IConfiguration configuration = new ConfigurationBuilder()
-                .SetBasePath(env)
-                .AddJsonFile("../appsettings.json")
+                .AddJsonFile("appsettings.json")
                 .Build();
 
             // using the unit of work object and the connection string store the repo within the Controller
@@ -31,8 +29,8 @@ namespace ProjectWebApp.Controllers
 
         public async Task<IActionResult> Index()
         {
-            ViewData["Simulation Data"] = await simulationRepository.GetAllAsync();
-            return View();
+            //ViewData["Simulation Data"] = await simulationRepository.GetAllAsync();
+            return View(await simulationRepository.GetAllAsync());
         }
 
 

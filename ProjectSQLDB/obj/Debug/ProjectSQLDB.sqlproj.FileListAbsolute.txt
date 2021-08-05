@@ -4,3 +4,7 @@ C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectSQLDB\bin\Debug\ProjectSQLDB.pd
 C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectSQLDB\obj\Debug\ProjectSQLDB.sqlproj.AssemblyReference.cache
 C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectSQLDB\obj\Debug\ProjectSQLDB.dll
 C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectSQLDB\obj\Debug\ProjectSQLDB.pdb
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectSQLDB\obj\Debug\Model.xml
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectSQLDB\obj\Debug\refactor.xml
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectSQLDB\obj\Debug\postdeploy.sql
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectSQLDB\obj\Debug\predeploy.sql
