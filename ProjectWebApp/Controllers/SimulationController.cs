@@ -29,8 +29,9 @@ namespace ProjectWebApp.Controllers
 
         public async Task<IActionResult> Index()
         {
-            //ViewData["Simulation Data"] = await simulationRepository.GetAllAsync();
-            return View(await simulationRepository.GetAllAsync());
+            ViewData["Simulation Data"] = await simulationRepository.GetAllAsync();
+
+            return View();
         }
 
 
@@ -56,10 +57,14 @@ namespace ProjectWebApp.Controllers
                     gitURL = model.gitURL
                 };
 
-                return View(await simulationRepository.AddAsync(data));
+                int result = await simulationRepository.AddAsync(data);
+                if(result > 0)
+                {
+                    return RedirectToAction("Index", "Simulation");
+                }
             }
 
-            return RedirectToAction("Index");
+            return StatusCode(500, new { Message = "Error Adding Item" });
         }
     }
 }

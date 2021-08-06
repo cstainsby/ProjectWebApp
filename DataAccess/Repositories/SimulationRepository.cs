@@ -25,7 +25,7 @@ namespace DataAccess.Repositories
                 throw new ArgumentNullException("entity");
             }
 
-            string sql = @"INSERT INTO dbo." + _type + "(Id, simName, simDesc, gitURL) VALUES(@Id, @simName, @simDesc, @gitURL);";
+            string sql = @"INSERT INTO dbo." + _type + " (Id, simName, simDesc, gitURL) VALUES (@Id, @simName, @simDesc, @gitURL);";
 
             return await _connection.ExecuteAsync
                 (
