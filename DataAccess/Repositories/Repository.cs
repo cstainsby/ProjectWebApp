@@ -24,39 +24,23 @@ namespace DataAccess.Repositories
         // retrieve specific item within given Id
         public async Task<T> GetByIdAsync(int Id)
         {
-            string sql = "SELECT * FROM dbo." + _type + " WHERE Id = @Id";
+            string sql = @"SELECT * FROM dbo." + _type + " WHERE Id = @Id";
 
             return await _connection.QuerySingleOrDefaultAsync
-                (
-                sql, 
+                (sql, 
                 param: new { Id = Id }, 
-                transaction: _transaction
-                );
-        }
-
-        // retrieve all items of type T within the db 
-        public async Task<IEnumerable<T>> GetAllAsync()
-        {
-            string sql = "SELECT * FROM dbo." + _type;
-
-            return await _connection.QueryAsync<T>
-                (
-                sql,
-                transaction: _transaction
-                );
+                transaction: _transaction);
         }
 
         // delete an item of type T within db given Id
         public async Task<int> RemoveAsync(int Id)
         {
-            string sql = "DELETE FROM dbo." + _type + " WHERE Id = @Id";
+            string sql = @"DELETE FROM dbo." + _type + " WHERE Id = @Id";
 
             return await _connection.ExecuteAsync
-                (
-                sql,
+                (sql,
                 param: new { Id = Id },
-                transaction: _transaction
-                );
+                transaction: _transaction);
         }
     }
 }

@@ -19,21 +19,27 @@ namespace ProjectUnitTests.Repositories
     public class RepositoryTest
     {
         [Fact]
-        public async void GetIdByAsync_ValidCall()
+        public async Task GetSimulationAsync_ValidCall()
         {
-            using(var mock = AutoMock.GetLoose())
+            // Arrange
+            // create a new simulation
+            var simulation = new SimulationModel()
             {
-                // mock a UnitOfWork class and use it to get a simulation repository which returns "GetAllAsync"
-                // compare the return value to GetSampleSimulation()'s return
-                mock.Mock<IUnitOfWork>()
-                    .Setup(x => x.SimulationRepo.GetAllAsync())
-                    .ReturnsAsync(GetSampleSimulations());
+                Id = 1,
+                simName = "name",
+                gitURL = "test", 
+                simDesc = "test2"
+            };
+            int collect_Id = 1;
+            var sim_repo = new Mock<ISimulationRepository>();                            // mock the Simulation repository
+            sim_repo.Setup(x => x.GetByIdAsync(simulation.Id)).ReturnsAsync(simulation); // if the GetByIdAsync(Id) is called, should return simulation
 
-                var cls = mock.Create<Repository>;
-                var expected = GetSampleSimulations();
+            // Act 
+            SimulationController sim_controller = new SimulationController();
+            var result = await sim_controller.
 
-                var actual = await cls.
-            }
+            // Assert
+            Assert.Equal();
         }
 
         private IEnumerable<SimulationModel> GetSampleSimulations()

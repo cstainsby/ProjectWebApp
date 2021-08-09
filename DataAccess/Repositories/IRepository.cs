@@ -13,7 +13,7 @@ namespace DataAccess.Repositories
     public interface IRepository<T> where T : class
     {
         Task<T> GetByIdAsync(int Id);
-        Task<IEnumerable<T>> GetAllAsync();
+        
         //Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> expression);
 
         //void AddRange();

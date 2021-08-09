@@ -44,6 +44,25 @@
 				</Entry>
 			</Relationship>
 		</Element>
+		<Element Type="SqlPrimaryKeyConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[Simulation].[Id]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Simulation]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="3" />
+		</Element>
 		<Element Type="SqlTable" Name="[dbo].[Simulation]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
 			<Relationship Name="Columns">
@@ -61,6 +80,7 @@
 								</Element>
 							</Entry>
 						</Relationship>
+						<AttachedAnnotation Disambiguator="3" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -259,12 +279,9 @@ RETURN 0]]></Value>
 			<Property Name="BodyScript">
 				<Value><![CDATA[
 begin
-	set nocount on;
-
 	SELECT [Id], [simName], [simDesc], [gitUrl]
 	from dbo.Simulation;
-end
-RETURN 0]]></Value>
+end]]></Value>
 			</Property>
 			<Property Name="IsAnsiNullsOn" Value="True" />
 			<Relationship Name="BodyDependencies">
@@ -291,7 +308,7 @@ RETURN 0]]></Value>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
 				<Property Name="CreateOffset" Value="293" />
-				<Property Name="Length" Value="452" />
+				<Property Name="Length" Value="422" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
 				<Property Name="HeaderContents" Value="-- =====================================================================================&#xD;&#xA;-- Author: Cole Stainsby&#xD;&#xA;-- Create Date: 7/22/2021&#xD;&#xA;-- Description: Get all Simulations in the simulation db&#xD;&#xA;-- =====================================================================================&#xD;&#xA;&#xD;&#xA;CREATE PROCEDURE [dbo].[spSimulation_GetAll]&#xD;&#xA;AS" />

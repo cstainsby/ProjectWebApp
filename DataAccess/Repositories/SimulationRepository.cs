@@ -17,7 +17,17 @@ namespace DataAccess.Repositories
             _type = "Simulation";
         }
 
-        // create a new item of type T within db given Id
+        // retrieve all items of type SimulationModel within the db 
+        public async Task<IEnumerable<SimulationModel>> GetAllAsync()
+        {
+            string sql = @"SELECT Id, simName, simDesc, gitURL FROM dbo." + _type;
+
+            return await _connection.QueryAsync<SimulationModel>
+                (sql,
+                transaction: _transaction);
+        }
+
+        // create a new item of type SimulationModel within db given Id
         public async Task<int> AddAsync(SimulationModel entity)
         {
             if (entity == null)
@@ -25,14 +35,12 @@ namespace DataAccess.Repositories
                 throw new ArgumentNullException("entity");
             }
 
-            string sql = @"INSERT INTO dbo." + _type + " (Id, simName, simDesc, gitURL) VALUES (@Id, @simName, @simDesc, @gitURL);";
-
+            string sql = @"INSERT INTO dbo." + _type + "(Id, simName, simDesc, gitURL) VALUES(@Id, @simName, @simDesc, @gitURL);";
+            
             return await _connection.ExecuteAsync
-                (
-                sql,
-                param: new { Id = entity.Id, simName = entity.simName, gitURL = entity.gitURL, simDesc = entity.simDesc},
-                transaction: _transaction
-                );
+                (sql,
+                new { Id = entity.Id, simName = entity.simName, gitURL = entity.gitURL, simDesc = entity.simDesc},
+                transaction: _transaction);
         }
     }
 }

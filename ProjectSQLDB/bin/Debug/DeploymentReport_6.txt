@@ -1,0 +1,20 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       [dbo].[Simulation]
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Table rebuild
+       [dbo].[Simulation] (Table)
+     Alter
+       [dbo].[spSimulation_GetAll] (Procedure)
+
+** Supporting actions
+     Refresh
+       [dbo].[SimulationView] (View)
+       [dbo].[spSimulation_FliterBySimName] (Procedure)
