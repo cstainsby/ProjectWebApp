@@ -18,31 +18,54 @@ namespace ProjectUnitTests.Repositories
 {
     public class RepositoryTest
     {
-        [Fact]
-        public async Task GetSimulationAsync_ValidCall()
+        private readonly ISimulationRepository sim_repo; // save the mocked sim repo in a class variable 
+
+        public RepositoryTest()
         {
-            // Arrange
-            // create a new simulation
-            var simulation = new SimulationModel()
-            {
-                Id = 1,
-                simName = "name",
-                gitURL = "test", 
-                simDesc = "test2"
-            };
-            int collect_Id = 1;
-            var sim_repo = new Mock<ISimulationRepository>();                            // mock the Simulation repository
-            sim_repo.Setup(x => x.GetByIdAsync(simulation.Id)).ReturnsAsync(simulation); // if the GetByIdAsync(Id) is called, should return simulation
+            IList<SimulationModel> simulations = GetSampleSimulations();
 
-            // Act 
-            SimulationController sim_controller = new SimulationController();
-            var result = await sim_controller.
+            // mock the Simulation repository
+            var sim_repo = new Mock<ISimulationRepository>();
 
-            // Assert
-            Assert.Equal();
+            // return all of the simulations 
+            sim_repo.Setup(x => x.GetAllAsync()).ReturnsAsync(simulations.ToList());
+
+            // return a simulation by Id
+            sim_repo.Setup(x => x.GetByIdAsync(It.IsAny<int>())).ReturnsAsync((int i) => simulations.Where(y => y.Id == i).Single());
+
+
+            this.sim_repo = sim_repo.Object;
         }
 
-        private IEnumerable<SimulationModel> GetSampleSimulations()
+        [Fact]
+        public async void ReturnAllSimulations()
+        {
+            // find all products
+            IEnumerable<SimulationModel> test_sims = await this.sim_repo.GetAllAsync();
+
+            Assert.True(test_sims != null);
+            Assert.Equal(2, test_sims.ToList().Count);
+        }
+
+        [Fact]
+        public async void ReturnSimulationById()
+        {
+            SimulationModel test_model = await this.sim_repo.GetByIdAsync(1);
+
+            // check that test_model matches what is returned from the repo
+            Assert.True(test_model != null);
+            Assert.Equal(GetSampleSimulations().ToList()[0], test_model);
+
+            // test the second model in the repo using the getById method 
+            test_model = await this.sim_repo.GetByIdAsync(2);
+
+            // check that test_model matches what is returned from the repo
+            Assert.True(test_model != null);
+            Assert.Equal(GetSampleSimulations().ToList()[1], test_model);
+        }
+
+        // helper function to generate sample simulations to work with 
+        private IList<SimulationModel> GetSampleSimulations()
         {
             List<SimulationModel> models = new List<SimulationModel>
             {
