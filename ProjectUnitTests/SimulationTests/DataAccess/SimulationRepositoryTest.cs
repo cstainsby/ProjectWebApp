@@ -95,7 +95,6 @@ namespace ProjectUnitTests.Repositories
 
         [Fact]
         public async void SimulationAddAsync_RepositoryTest()
-
         {
             // Arrange
             // get sample sims by passing in null IEnumerable into sample helper 
@@ -132,6 +131,9 @@ namespace ProjectUnitTests.Repositories
 
             // find product from sim_repo at the same index
             int test_return_val = await sim_repo.AddAsync(add_sim);
+
+            // save changes
+            unitOfWorkMock.Object.Save();
 
             // get the added model from each of the repos
             // this assumes the get by Id function is working ------
@@ -222,6 +224,7 @@ namespace ProjectUnitTests.Repositories
             Assert.Equal(expected_size, actual_enumerable.Count());
             Assert.Equal(expected_size, test_enumerable.Count());
 
+            // run through each element in the list currently at each index and check if they are equal
             for(int i = 0; i < expected_size; ++i)
             {
                 SimulationModel actual_at_i = actual_enumerable.ElementAt(i);

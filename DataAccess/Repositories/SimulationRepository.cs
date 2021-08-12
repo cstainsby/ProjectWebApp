@@ -35,12 +35,18 @@ namespace DataAccess.Repositories
                 throw new ArgumentNullException("entity");
             }
 
-            string sql = @"INSERT INTO dbo." + _type + "(Id, simName, simDesc, gitURL) VALUES(@Id, @simName, @simDesc, @gitURL);";
-            
-            return await _connection.ExecuteAsync
+            string sql = @"INSERT INTO dbo." + _type + " (simName, simDesc, gitURL) VALUES(@simName, @simDesc, @gitURL);";
+
+            sql = sql.Replace("@simName", $"'{entity.simName}'");
+            sql = sql.Replace("@simDesc", $"'{entity.simDesc}'");
+            sql = sql.Replace("@gitURL", $"'{entity.gitURL}'");
+
+            int rowsAffected = await _connection.ExecuteAsync
                 (sql,
                 new { Id = entity.Id, simName = entity.simName, gitURL = entity.gitURL, simDesc = entity.simDesc},
                 transaction: _transaction);
+
+            return rowsAffected;
         }
     }
 }

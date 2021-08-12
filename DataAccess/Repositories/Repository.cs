@@ -24,7 +24,8 @@ namespace DataAccess.Repositories
         // retrieve specific item within given Id
         public async Task<T> GetByIdAsync(int Id)
         {
-            string sql = @"SELECT * FROM dbo." + _type + " WHERE Id = @Id";
+            string sql = $"SELECT * FROM dbo." + _type + " WHERE Id = " + Id;
+
 
             return await _connection.QuerySingleOrDefaultAsync
                 (sql, 

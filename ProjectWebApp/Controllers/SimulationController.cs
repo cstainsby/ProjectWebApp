@@ -13,23 +13,23 @@ namespace ProjectWebApp.Controllers
 {
     public class SimulationController : Controller
     {
-        private ISimulationRepository simulationRepository;
+        private UnitOfWork unitOfWork;
 
         public SimulationController()
         {
             // build a configuration to access connection strings
-            IConfiguration configuration = new ConfigurationBuilder()
+            IConfiguration cnn = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json")
                 .Build();
 
-            // using the unit of work object and the connection string store the repo within the Controller
-            var unitWork = new UnitOfWork(configuration.GetConnectionString("ProjectDB"));
-            simulationRepository = unitWork.SimulationRepo;
+            unitOfWork = new UnitOfWork(cnn.GetConnectionString("ProjectDB"));
         }
 
         public async Task<IActionResult> Index()
         {
-            ViewData["Simulation Data"] = await simulationRepository.GetAllAsync();
+            ISimulationRepository simRepo = unitOfWork.SimulationRepo;
+
+            ViewData["Simulation Data"] = await simRepo.GetAllAsync();
 
             return View();
         }
@@ -49,6 +49,9 @@ namespace ProjectWebApp.Controllers
             // prevent spoofing check
             if (ModelState.IsValid)
             {
+                
+                ISimulationRepository simRepo = unitOfWork.SimulationRepo;
+
                 SimulationModel data = new SimulationModel
                 {
                     Id = model.Id,
@@ -57,8 +60,11 @@ namespace ProjectWebApp.Controllers
                     gitURL = model.gitURL
                 };
 
-                int result = await simulationRepository.AddAsync(data);
-                if(result > 0)
+                int result = await simRepo.AddAsync(data);
+
+                unitOfWork.Save();
+
+                if (result > 0)
                 {
                     return RedirectToAction("Index", "Simulation");
                 }
