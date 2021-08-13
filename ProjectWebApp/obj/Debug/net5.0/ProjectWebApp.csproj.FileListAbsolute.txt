@@ -382,3 +382,4 @@ C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectWebApp\obj\Debug\net5.0\Razor\V
 C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectWebApp\obj\Debug\net5.0\Razor\Views\SimulationPage\Code.cshtml.g.cs
 C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectWebApp\obj\Debug\net5.0\Razor\Views\SimulationPage\SimulationPage.cshtml.g.cs
 C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectWebApp\obj\Debug\net5.0\Razor\Views\SimulationPage\_PlayPartial.cshtml.g.cs
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectWebApp\obj\Debug\net5.0\Razor\Views\Workshop\Index.cshtml.g.cs

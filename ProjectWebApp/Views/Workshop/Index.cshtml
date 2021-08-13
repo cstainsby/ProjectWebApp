@@ -4,11 +4,16 @@
 @{
 }
 
-@model IEnumerable<DataAccess.Models.SimulationModel>
+<h1>Workshop</h1>
 
-<h1>Simulation</h1>
+<h4>Your Work</h4>
 <table class="table">
     <thead>
+        <tr>
+            <a class="btn text-dark" asp-action="Create">
+                Create
+            </a>
+        </tr>
     </thead>
 
     <tbody>
@@ -24,5 +29,3 @@
         }
     </tbody>
 </table>
-
-
