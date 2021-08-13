@@ -23,7 +23,9 @@ namespace ProjectWebApp.Models
 
         public Simulation()
         {
-
+            simName = "";
+            simDesc = "";
+            gitURL = "";
         }
     }
 }

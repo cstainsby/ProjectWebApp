@@ -1,0 +1,34 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h1>Workshop</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <a class="btn text-dark" asp-action="Create">
+                Create
+            </a>
+            <a class="btn text-dark" asp-action="Remove">
+                Delete
+            </a>
+        </tr>
+    </thead>
+
+    <tbody>
+        <h4>Your Work</h4>
+        @foreach (var Simulation in ViewData["Simulation Data"] as IEnumerable<DataAccess.Models.SimulationModel>)
+        {
+            <tr>
+                <td>
+                    <a class="btn text-black-50" asp-controller="SimulationPage" asp-action="SimulationPage">
+                        @Simulation.simName
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

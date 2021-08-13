@@ -7,18 +7,22 @@
 @model IEnumerable<DataAccess.Models.SimulationModel>
 
 <h1>Simulation</h1>
+<table class="table">
+    <thead>
+    </thead>
 
-<a class="btn text-dark" asp-action="Create">
-    Create
-</a>
+    <tbody>
+        @foreach (var Simulation in ViewData["Simulation Data"] as IEnumerable<DataAccess.Models.SimulationModel>)
+        {
+            <tr>
+                <td>
+                    <a class="btn text-black-50" asp-controller="SimulationPage" asp-action="SimulationPage">
+                        @Simulation.simName
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
 
-<a class="btn text-black-50" asp-controller="SimulationPage" asp-action="SimulationPage">
-    To Sim
-</a>
 
-@foreach(var Simulation in (IEnumerable<DataAccess.Models.SimulationModel>)ViewData["Simulation Data"])
-            {
-                <tr>
-                    <td>@Simulation.simName</td>
-                </tr>
-            }

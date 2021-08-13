@@ -15,6 +15,7 @@ namespace DataAccess.Repositories
 {
     public interface ISimulationRepository : IRepository<SimulationModel>
     {
-        
+        Task<IEnumerable<SimulationModel>> GetAllAsync();
+        Task<int> AddAsync(SimulationModel entity);
     }
 }

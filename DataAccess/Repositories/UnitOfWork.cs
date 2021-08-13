@@ -29,7 +29,7 @@ namespace DataAccess.Repositories
             get{ return _simRepo ?? (_simRepo = new SimulationRepository(_dbTransaction)); }
         }
 
-        void IUnitOfWork.Save()
+        public void Save()
         {
             try
             {
