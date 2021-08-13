@@ -356,8 +356,6 @@ C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectWebApp\obj\Debug\net5.0\ref\Pro
 C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectWebApp\obj\Debug\net5.0\ProjectWebApp.pdb
 C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectWebApp\obj\Debug\net5.0\ProjectWebApp.genruntimeconfig.cache
 C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectWebApp\obj\Debug\net5.0\Razor\Views\Simulation\Index.cshtml.g.cs
-C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectWebApp\obj\Debug\net5.0\Razor\Views\Simulation\Create.cshtml.g.cs
-C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectWebApp\obj\Debug\net5.0\Razor\Views\Simulation\Delete.cshtml.g.cs
 C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectWebApp\bin\Debug\net5.0\DataAccess.deps.json
 C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectWebApp\bin\Debug\net5.0\DataAccess.runtimeconfig.json
 C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectWebApp\bin\Debug\net5.0\DataAccess.runtimeconfig.dev.json
@@ -383,3 +381,5 @@ C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectWebApp\obj\Debug\net5.0\Razor\V
 C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectWebApp\obj\Debug\net5.0\Razor\Views\SimulationPage\SimulationPage.cshtml.g.cs
 C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectWebApp\obj\Debug\net5.0\Razor\Views\SimulationPage\_PlayPartial.cshtml.g.cs
 C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectWebApp\obj\Debug\net5.0\Razor\Views\Workshop\Index.cshtml.g.cs
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectWebApp\obj\Debug\net5.0\Razor\Views\Workshop\Create.cshtml.g.cs
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectWebApp\obj\Debug\net5.0\Razor\Views\Workshop\Remove.cshtml.g.cs

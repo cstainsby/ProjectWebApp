@@ -6,17 +6,20 @@
 
 <h1>Workshop</h1>
 
-<h4>Your Work</h4>
 <table class="table">
     <thead>
         <tr>
             <a class="btn text-dark" asp-action="Create">
                 Create
             </a>
+            <a class="btn text-dark" asp-action="Remove">
+                Delete
+            </a>
         </tr>
     </thead>
 
     <tbody>
+        <h4>Your Work</h4>
         @foreach (var Simulation in ViewData["Simulation Data"] as IEnumerable<DataAccess.Models.SimulationModel>)
         {
             <tr>

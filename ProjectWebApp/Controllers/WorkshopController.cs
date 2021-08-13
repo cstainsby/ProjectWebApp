@@ -43,7 +43,7 @@ namespace ProjectWebApp.Controllers
 
         // when sending data from the form use this method
         [HttpPost]
-        public async Task<IActionResult> Create(Simulation model)
+        public async Task<IActionResult> Create(Simulation simulation)
         {
             // prevent spoofing check
             if (ModelState.IsValid)
@@ -53,23 +53,37 @@ namespace ProjectWebApp.Controllers
 
                 SimulationModel data = new SimulationModel
                 {
-                    Id = model.Id,
-                    simName = model.simName,
-                    simDesc = model.simDesc,
-                    gitURL = model.gitURL
+                    Id = simulation.Id,
+                    simName = simulation.simName,
+                    simDesc = simulation.simDesc,
+                    gitURL = simulation.gitURL
                 };
 
-                int result = await simRepo.AddAsync(data);
+                int rowsAffected = await simRepo.AddAsync(data);
 
-                unitOfWork.Save();
-
-                if (result > 0)
+                if (rowsAffected > 0)
                 {
-                    return RedirectToAction("Index", "Simulation");
+                    unitOfWork.Save();
+                    return RedirectToAction("Index", "Workshop");
                 }
             }
 
             return StatusCode(500, new { Message = "Error Adding Item" });
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Remove(Simulation simulation)
+        {
+            ISimulationRepository simRepo = unitOfWork.SimulationRepo;
+
+            int rowsAffected = await simRepo.RemoveAsync(simulation.Id);
+
+            if (rowsAffected > 0)
+            {
+                unitOfWork.Save();
+                return RedirectToAction("Index", "Workshop");
+            }
+            return StatusCode(500, new { Message = "Error Removing Error" });
         }
     }
 }
