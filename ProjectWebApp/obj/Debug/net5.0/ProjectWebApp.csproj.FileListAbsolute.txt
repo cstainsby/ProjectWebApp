@@ -383,3 +383,4 @@ C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectWebApp\obj\Debug\net5.0\Razor\V
 C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectWebApp\obj\Debug\net5.0\Razor\Views\Workshop\Index.cshtml.g.cs
 C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectWebApp\obj\Debug\net5.0\Razor\Views\Workshop\Create.cshtml.g.cs
 C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectWebApp\obj\Debug\net5.0\Razor\Views\Workshop\Remove.cshtml.g.cs
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectWebApp\obj\Debug\net5.0\Razor\Views\Shared\_ProjectListPartial.cshtml.g.cs

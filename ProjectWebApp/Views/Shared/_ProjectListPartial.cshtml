@@ -1,0 +1,36 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model DataAccess.Models.SimulationModel
+
+@{
+}
+
+<html>
+<head>
+    <style>
+        .project-title-card {
+            width: 500px;
+            height: 200px;
+            background-color: #0366d6;
+            border-radius: 10px;
+        }
+
+        .project-title-card:hover {
+            background-color: #0366d6;
+        }
+    </style>
+</head>
+<body>
+    <div class="project-title-card">
+        <a class="btn text-black-50" asp-controller="SimulationPage" asp-action="SimulationPage">
+            @Model.simName
+        </a>
+        <a class="btn-danger" asp-action="Remove">
+            Remove
+        </a>
+    </div>
+</body>
+</html>
+

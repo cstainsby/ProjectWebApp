@@ -71,12 +71,18 @@ namespace ProjectWebApp.Controllers
             return StatusCode(500, new { Message = "Error Adding Item" });
         }
 
-        [HttpDelete]
-        public async Task<IActionResult> Remove(Simulation simulation)
+
+        public async Task<IActionResult> Remove(int Id)
         {
             ISimulationRepository simRepo = unitOfWork.SimulationRepo;
 
-            int rowsAffected = await simRepo.RemoveAsync(simulation.Id);
+            // check if there is an element at input Id
+            if(simRepo.GetByIdAsync(Id) == null)
+            {
+                return NotFound();
+            }
+
+            int rowsAffected = await simRepo.RemoveAsync(Id);
 
             if (rowsAffected > 0)
             {
