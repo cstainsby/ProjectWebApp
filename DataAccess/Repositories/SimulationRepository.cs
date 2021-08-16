@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DataAccess.Models;
+using static DataAccess.DataProcessing.Processor; // statically include to use static functions without instantiating object
 using Microsoft.Extensions.Configuration;
 using System.Data;
 using Dapper;
@@ -28,8 +29,16 @@ namespace DataAccess.Repositories
         }
 
         // create a new item of type SimulationModel within db given Id
-        public async Task<int> AddAsync(SimulationProjectModel entity)
+        public async Task<int> AddAsync(int Id, string simName, string simDesc, string gitURL, int dimensions)
         {
+            SimulationProjectModel entity = processSimulation(
+                Id,
+                simName,
+                simDesc,
+                gitURL,
+                dimensions
+            );
+
             if (entity == null)
             {
                 throw new ArgumentNullException("entity");

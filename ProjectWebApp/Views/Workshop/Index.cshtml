@@ -23,7 +23,7 @@
 
     <tbody>
         <h4>Your Work</h4>
-        @foreach (var Simulation in ViewData["Simulation Data"] as IEnumerable<DataAccess.Models.SimulationModel>)
+        @foreach (var Simulation in ViewData["Simulation Data"] as IEnumerable<DataAccess.Models.SimulationProjectModel>)
         {
             <partial name="_ProjectListPartial" model="Simulation" />
         }

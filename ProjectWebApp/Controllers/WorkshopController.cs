@@ -1,5 +1,4 @@
-﻿using DataAccess.Models;
-using DataAccess.Repositories;
+﻿using DataAccess.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using ProjectWebApp.Models;
@@ -43,7 +42,7 @@ namespace ProjectWebApp.Controllers
 
         // when sending data from the form use this method
         [HttpPost]
-        public async Task<IActionResult> Create(Simulation simulation)
+        public async Task<IActionResult> Create(Simulation model)
         {
             // prevent spoofing check
             if (ModelState.IsValid)
@@ -51,19 +50,18 @@ namespace ProjectWebApp.Controllers
 
                 ISimulationRepository simRepo = unitOfWork.SimulationRepo;
 
-                SimulationProjectModel data = new SimulationProjectModel
-                {
-                    Id = simulation.Id,
-                    simName = simulation.simName,
-                    simDesc = simulation.simDesc,
-                    gitURL = simulation.gitURL
-                };
+                int result = await simRepo.AddAsync(
+                    model.Id,
+                    model.simName,
+                    model.simDesc,
+                    model.gitURL,
+                    model.dimensions
+                    );
 
-                int rowsAffected = await simRepo.AddAsync(data);
+                unitOfWork.Save();
 
-                if (rowsAffected > 0)
+                if (result > 0)
                 {
-                    unitOfWork.Save();
                     return RedirectToAction("Index", "Workshop");
                 }
             }

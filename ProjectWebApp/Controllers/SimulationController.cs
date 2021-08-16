@@ -4,9 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ProjectWebApp.Models;
-using DataAccess;         // import the data access project 
-using DataAccess.Repositories;   // and its logic classes
-using DataAccess.Models;
+using DataAccess.Repositories;   // import unitOfWork repo
 using Microsoft.Extensions.Configuration;
 
 namespace ProjectWebApp.Controllers
@@ -52,15 +50,13 @@ namespace ProjectWebApp.Controllers
                 
                 ISimulationRepository simRepo = unitOfWork.SimulationRepo;
 
-                SimulationProjectModel data = new SimulationProjectModel
-                {
-                    Id = model.Id,
-                    simName = model.simName,
-                    simDesc = model.simDesc,
-                    gitURL = model.gitURL
-                };
-
-                int result = await simRepo.AddAsync(data);
+                int result = await simRepo.AddAsync(
+                    model.Id, 
+                    model.simName,
+                    model.simDesc,
+                    model.gitURL,
+                    model.dimensions
+                    );
 
                 unitOfWork.Save();
 
