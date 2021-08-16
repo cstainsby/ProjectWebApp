@@ -52,7 +52,7 @@ namespace ProjectWebApp.Controllers
                 
                 ISimulationRepository simRepo = unitOfWork.SimulationRepo;
 
-                SimulationModel data = new SimulationModel
+                SimulationProjectModel data = new SimulationProjectModel
                 {
                     Id = model.Id,
                     simName = model.simName,

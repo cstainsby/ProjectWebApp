@@ -9,7 +9,7 @@ using Dapper;
 
 namespace DataAccess.Repositories
 {
-    internal class SimulationRepository : Repository<SimulationModel>, ISimulationRepository
+    internal class SimulationRepository : Repository<SimulationProjectModel>, ISimulationRepository
     {
         // possibly add a copy helper
         public SimulationRepository(IDbTransaction _transaction) : base(_transaction)
@@ -18,17 +18,17 @@ namespace DataAccess.Repositories
         }
 
         // retrieve all items of type SimulationModel within the db 
-        public async Task<IEnumerable<SimulationModel>> GetAllAsync()
+        public async Task<IEnumerable<SimulationProjectModel>> GetAllAsync()
         {
             string sql = @"SELECT Id, simName, simDesc, gitURL FROM dbo." + _type;
 
-            return await _connection.QueryAsync<SimulationModel>
+            return await _connection.QueryAsync<SimulationProjectModel>
                 (sql,
                 transaction: _transaction);
         }
 
         // create a new item of type SimulationModel within db given Id
-        public async Task<int> AddAsync(SimulationModel entity)
+        public async Task<int> AddAsync(SimulationProjectModel entity)
         {
             if (entity == null)
             {

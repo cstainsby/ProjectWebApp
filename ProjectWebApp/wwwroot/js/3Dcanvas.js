@@ -23,11 +23,6 @@ function main() {
         return;
     }
 
-    // Set clear color to black, fully opaque
-    gl.clearColor(0.0, 0.0, 0.0, 1.0);
-    // Clear the color buffer with specified clear color
-    gl.clear(gl.COLOR_BUFFER_BIT);
-
     // vertex shader string 
     const vsSource = `
     attribute vec4 aVertexPosition;
@@ -60,59 +55,12 @@ function main() {
         },
     };
 
-    var buffers = initBuffers(gl);
-    drawScene(gl, programInfo, buffers);
+    const buffers = initBuffers(gl); // build objects to be drawn
+    drawScene(gl, programInfo, buffers); // draw out the canvas 
 }
 
-// when loaded use main as a constructor for the canvas 
-window.onload = main;
 
 
-//
-// Initialize a shader program, so WebGL knows how to draw our data
-//
-function initShaderProgram(gl, vsSource, fsSource) {
-    const vertexShader = loadShader(gl, gl.VERTEX_SHADER, vsSource);
-    const fragmentShader = loadShader(gl, gl.FRAGMENT_SHADER, fsSource);
-
-    // Create the shader program
-    const shaderProgram = gl.createProgram();
-    gl.attachShader(shaderProgram, vertexShader);
-    gl.attachShader(shaderProgram, fragmentShader);
-    gl.linkProgram(shaderProgram);
-
-    // If creating the shader program failed, alert
-    if (!gl.getProgramParameter(shaderProgram, gl.LINK_STATUS)) {
-        alert('Unable to initialize the shader program: ' + gl.getProgramInfoLog(shaderProgram));
-        return null;
-    }
-
-    return shaderProgram;
-}
-
-//
-// creates a shader of the given type, uploads the source and
-// compiles it.
-// this is a helper function for the init shader program
-//
-function loadShader(gl, type, source) {
-    const shader = gl.createShader(type);
-
-    // Send the source to the shader object
-    gl.shaderSource(shader, source);
-
-    // Compile the shader program
-    gl.compileShader(shader);
-
-    // See if it compiled successfully
-    if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-        alert('An error occurred compiling the shaders: ' + gl.getShaderInfoLog(shader));
-        gl.deleteShader(shader);
-        return null;
-    }
-
-    return shader;
-}
 
 function initBuffers(gl) {
 
@@ -151,7 +99,6 @@ function drawScene(gl, programInfo, buffers) {
     gl.depthFunc(gl.LEQUAL);            // Near things obscure far things
 
     // Clear the canvas before we start drawing on it.
-
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
     // Create a perspective matrix, a special matrix that is
@@ -160,7 +107,6 @@ function drawScene(gl, programInfo, buffers) {
     // ratio that matches the display size of the canvas
     // and we only want to see objects between 0.1 units
     // and 100 units away from the camera.
-
     const fieldOfView = 45 * Math.PI / 180;   // in radians
     const aspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
     const zNear = 0.1;
@@ -237,3 +183,51 @@ function drawScene(gl, programInfo, buffers) {
         gl.drawArrays(gl.TRIANGLE_STRIP, offset, vertexCount);
     }
 }
+//
+// Initialize a shader program, so WebGL knows how to draw our data
+//
+function initShaderProgram(gl, vsSource, fsSource) {
+    const vertexShader = loadShader(gl, gl.VERTEX_SHADER, vsSource);
+    const fragmentShader = loadShader(gl, gl.FRAGMENT_SHADER, fsSource);
+
+    // Create the shader program
+    const shaderProgram = gl.createProgram();
+    gl.attachShader(shaderProgram, vertexShader);
+    gl.attachShader(shaderProgram, fragmentShader);
+    gl.linkProgram(shaderProgram);
+
+    // If creating the shader program failed, alert
+    if (!gl.getProgramParameter(shaderProgram, gl.LINK_STATUS)) {
+        alert('Unable to initialize the shader program: ' + gl.getProgramInfoLog(shaderProgram));
+        return null;
+    }
+
+    return shaderProgram;
+}
+
+//
+// creates a shader of the given type, uploads the source and
+// compiles it.
+// this is a helper function for the init shader program
+//
+function loadShader(gl, type, source) {
+    const shader = gl.createShader(type);
+
+    // Send the source to the shader object
+    gl.shaderSource(shader, source);
+
+    // Compile the shader program
+    gl.compileShader(shader);
+
+    // See if it compiled successfully
+    if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+        alert('An error occurred compiling the shaders: ' + gl.getShaderInfoLog(shader));
+        gl.deleteShader(shader);
+        return null;
+    }
+
+    return shader;
+}
+
+// when loaded use main as a constructor for the canvas 
+window.onload = main;
