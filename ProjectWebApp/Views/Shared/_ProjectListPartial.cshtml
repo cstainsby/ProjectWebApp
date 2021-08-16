@@ -12,8 +12,8 @@
     <style>
         .project-title-card {
             width: 500px;
-            height: 200px;
-            background-color: #0366d6;
+            height: 50px;
+            background-color: #2c5d63;
             border-radius: 10px;
         }
 
@@ -24,7 +24,7 @@
 </head>
 <body>
     <div class="project-title-card">
-        <a class="btn text-black-50" asp-controller="SimulationPage" asp-action="SimulationPage">
+        <a class="btn text-black-50" asp-controller="ProjectMainPage" asp-action="ProjectMainPage">
             @Model.simName
         </a>
         <a class="btn-danger" asp-action="Remove">

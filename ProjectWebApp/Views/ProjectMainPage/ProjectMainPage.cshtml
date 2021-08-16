@@ -6,7 +6,7 @@
 
 
 @{
-    ViewData["Title"] = "Simulation View";
+    ViewData["Title"] = "Project View";
 }
 
 <!--
@@ -72,9 +72,6 @@
             top: 60px;
         }
 
-        #Main-Content-Wrapper {
-            background: #283739;
-        }
     </style>
 </head>
 <body>
@@ -112,7 +109,7 @@
         </nav>
         <!-- Main content area -->
         <div id="Main-Content-Wrapper">
-            <canvas>
+            <canvas id="#glCanvas">
             </canvas>
         </div>
     </div>
@@ -125,7 +122,7 @@
         });
     </script>
 
-    <script src="~/js/canvasSetup.js"></script>
+    <script src="~/js/canvas.js"></script>
     <!-- When it isnt -->
 </body>
 </html>

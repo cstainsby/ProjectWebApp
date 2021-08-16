@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProjectWebApp.Controllers
 {
-    public class SimulationPageController : Controller
+    public class ProjectMainPageController : Controller
     {
-        public IActionResult SimulationPage()
+        public IActionResult ProjectMainPage()
         {
             return View();
         }
