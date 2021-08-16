@@ -8,21 +8,23 @@ const vsSource = `
     uniform mat4 uModelViewMatrix;
     uniform mat4 uProjectionMatrix;
 
-    void SetupCanvas() {
+    void main() {
       gl_Position = uProjectionMatrix * uModelViewMatrix * aVertexPosition;
     }
   `;
 
 // fragmentation shader string
 const fsSource = `
-    void SetupCanvas() {
+    void main() {
       gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
     }
   `;
 
 
 function SetupCanvas() {
-    var canvas = document.getElementById("#glCanvas");
+    alert("setting up webgl");
+    var canvas = document.querySelector("#glCanvas");
+
     // get webgl
     var gl = canvas.getContext("webgl"); 
 
@@ -85,7 +87,7 @@ function SetupCanvas() {
 
     var positionAttribLocation = g1.getAttribLocation(program, 'vertPostion');
     gl.vertesAttribPointer(
-        positionAttribLocation // attribute location
+        positionAttribLocation, // attribute location
         2, // number of elements
         gl.FLOAT, // type of element
         gl.FALSE,
@@ -102,6 +104,8 @@ function SetupCanvas() {
         0, // skip none of the points
         3 // three points
     );
+
+    
 };
 
 // when loaded use Setup Canvas as a constructor for the canvas 
