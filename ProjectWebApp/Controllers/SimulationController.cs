@@ -9,59 +9,10 @@ using Microsoft.Extensions.Configuration;
 
 namespace ProjectWebApp.Controllers
 {
-    public class SimulationController : Controller
+    public class SimulationController : NavController
     {
-        private UnitOfWork unitOfWork;
-
-        public SimulationController(UnitOfWork unitOfWork)
+        public SimulationController(UnitOfWork unitOfWork) : base(unitOfWork)
         {
-            this.unitOfWork = unitOfWork;
-        }
-
-        public async Task<IActionResult> Index()
-        {
-            ISimulationRepository simRepo = unitOfWork.SimulationRepo;
-
-            ViewData["Simulation Data"] = await simRepo.GetAllAsync();
-
-            return View();
-        }
-
-
-
-        // get form
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // when sending data from the form use this method
-        [HttpPost]
-        public async Task<IActionResult> Create(Simulation model)
-        {
-            // prevent spoofing check
-            if (ModelState.IsValid)
-            {
-                
-                ISimulationRepository simRepo = unitOfWork.SimulationRepo;
-
-                int result = await simRepo.AddAsync(
-                    model.Id, 
-                    model.simName,
-                    model.simDesc,
-                    model.gitURL,
-                    model.dimensions
-                    );
-
-                unitOfWork.Save();
-
-                if (result > 0)
-                {
-                    return RedirectToAction("Index", "Simulation");
-                }
-            }
-
-            return StatusCode(500, new { Message = "Error Adding Item" });
         }
     }
 }

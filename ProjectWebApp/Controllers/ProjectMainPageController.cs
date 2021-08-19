@@ -4,21 +4,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DataAccess.Models;
+using DataAccess.Repositories;
 
 namespace ProjectWebApp.Controllers
 {
     public class ProjectMainPageController : Controller
     {
-        private AbstractProjectModel projectModel;
+        private UnitOfWork unitOfWork;
 
-        public ProjectMainPageController(AbstractProjectModel projectModel)
+        public ProjectMainPageController(UnitOfWork unitOfWork)
         {
-            this.projectModel = projectModel;
+            this.unitOfWork = unitOfWork;
         }
 
-        public IActionResult ProjectMainPage()
+        // only accomodates simulations right now
+        public async Task<IActionResult> ProjectMainPage(int modelId)
         {
-            return View();
+            return View(await unitOfWork.SimulationRepo.GetByIdAsync(modelId));
         }
 
 
