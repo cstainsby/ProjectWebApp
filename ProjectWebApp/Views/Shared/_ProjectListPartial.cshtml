@@ -24,9 +24,9 @@
 </head>
 <body>
     <div class="project-title-card">
-        <a class="btn text-black-50" asp-controller="ProjectMainPage" asp-action="ProjectMainPage">
+        <button value="@Model.Id" class="btn text-black-50" asp-controller="ProjectMainPage" asp-action="ProjectMainPage">
             @Model.simName
-        </a>
+        </button>
         <a class="btn-danger" asp-action="Remove">
             Remove
         </a>

@@ -25,6 +25,17 @@ namespace ProjectWebApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+
+            // build a configuration to access connection strings
+            IConfiguration cnn = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json")
+                .Build();
+
+            var unitOfWork = new UnitOfWork(cnn.GetConnectionString("ProjectDB"));
+
+            // add UnitOfWork singleton to be called in controllers
+            services.AddSingleton<UnitOfWork>(unitOfWork);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,8 +56,9 @@ namespace ProjectWebApp
 
             app.UseRouting();
 
+            //Routing zone 
             app.UseAuthorization();
-
+            // end routing zone
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

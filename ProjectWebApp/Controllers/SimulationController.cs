@@ -13,14 +13,9 @@ namespace ProjectWebApp.Controllers
     {
         private UnitOfWork unitOfWork;
 
-        public SimulationController()
+        public SimulationController(UnitOfWork unitOfWork)
         {
-            // build a configuration to access connection strings
-            IConfiguration cnn = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json")
-                .Build();
-
-            unitOfWork = new UnitOfWork(cnn.GetConnectionString("ProjectDB"));
+            this.unitOfWork = unitOfWork;
         }
 
         public async Task<IActionResult> Index()
