@@ -22,7 +22,5 @@ namespace ProjectWebApp.Controllers
         {
             return View(await unitOfWork.SimulationRepo.GetByIdAsync(modelId));
         }
-
-
     }
 }
