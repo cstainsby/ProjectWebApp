@@ -8,7 +8,7 @@ public:
 	void release();
 };
 
-// Factory function which creates GameOfLife object
+// Factory function which creates Project object
 EXTERN_C PROJECTAPI PROJECTHANDLE WINAPI get_instance(VOID);
 
 // functions 

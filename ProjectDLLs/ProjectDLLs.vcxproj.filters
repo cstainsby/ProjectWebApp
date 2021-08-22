@@ -29,6 +29,9 @@
     <ClInclude Include="GenericDLLProj.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GenericProjectFunctions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -37,7 +40,7 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GenericDLLProj.cpp">
+    <ClCompile Include="GenericProjectFunctions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
