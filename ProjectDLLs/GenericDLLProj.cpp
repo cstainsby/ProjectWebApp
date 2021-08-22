@@ -2,18 +2,18 @@
 #include "GenericDLLProj.h"
 
 // inplementation of the IGameOfLife interface 
-class GameOfLifeObj : public IGameOfLife
+class ProjectObj : public IProject
 {
 	int add(int n1, int n2);
 	void release();
 };
 
-int GameOfLifeObj::add(int n1, int n2)
+int ProjectObj::add(int n1, int n2)
 {
 	return n1 + n2;
 }
 
-void GameOfLifeObj::release()
+void ProjectObj::release()
 {
 	delete this;
 }
@@ -23,18 +23,18 @@ void GameOfLifeObj::release()
 #pragma comment(linker, "/export:GetInstance=_GetInstance@0")
 #endif //_WIN64
 
-GAMEOFLIFEAPI GAMEOFLIFEHANDLE APIENTRY GetInstance()
+PROJECTAPI PROJECTHANDLE APIENTRY get_instance()
 {
-	return new GameOfLifeObj;
+	return new ProjectObj;
 }
 
 // regular c++ object implementation
-int CGameOfLife::add(int n1, int n2)
+int CProject::add(int n1, int n2)
 {
 	return n1 + n2;
 }
 
-GAMEOFLIFEAPI INT APIENTRY GameOfLifeadd(GAMEOFLIFEHANDLE handle, INT n1, INT n2)
+PROJECTAPI INT APIENTRY project_add(PROJECTHANDLE handle, INT n1, INT n2)
 {
 	int nResult = -1;
 
@@ -45,7 +45,7 @@ GAMEOFLIFEAPI INT APIENTRY GameOfLifeadd(GAMEOFLIFEHANDLE handle, INT n1, INT n2
 	return nResult;
 }
 
-GAMEOFLIFEAPI VOID APIENTRY GameOfLiferelease(GAMEOFLIFEHANDLE handle)
+PROJECTAPI VOID APIENTRY project_release(PROJECTHANDLE handle)
 {
 	if (handle) {
 		handle->release();

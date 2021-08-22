@@ -1,26 +1,26 @@
 // setup macros for exporting to dll easier
-#ifdef GAMEOFLIFE_EXPORTS
-#define GAMEOFLIFEAPI __declspec(dllimport)
+#ifndef PROJECT_EXPORTS
+#define PROJECTAPI __declspec(dllexport)
 #else
-#define GAMEOFLIFEAPI __declspec(dllexport)
+#define PROJECTAPI __declspec(dllimport)
 #endif
 
 #ifdef __cplusplus	
-struct IGameOfLife
+struct IProject
 {
 	virtual int add(int n1, int n2) = 0;
 	virtual void release() = 0;
 };
 
-class GAMEOFLIFEAPI CGameOfLife
+class PROJECTAPI CProject
 {
 public:
 	int add(int, int);
 };
 
-typedef IGameOfLife* GAMEOFLIFEHANDLE;
+typedef IProject* PROJECTHANDLE;
 #else 
-typedef struct tagGAMEOFLIFEHANDLE {} *GAMEOFLIFEHANDLE;
+typedef struct tagPROJECTHANDLE {} * PROJECTHANDLE;
 #endif //__cplusplus
 
 // define macro for extern "C"
@@ -31,9 +31,9 @@ typedef struct tagGAMEOFLIFEHANDLE {} *GAMEOFLIFEHANDLE;
 #endif // !__cplusplus
 
 // Factory function which creates GameOfLife object
-EXTERN_C GAMEOFLIFEAPI GAMEOFLIFEHANDLE WINAPI GetInstance(VOID);
+EXTERN_C PROJECTAPI PROJECTHANDLE WINAPI get_instance(VOID);
 
 // functions 
-EXTERN_C GAMEOFLIFEAPI INT APIENTRY GameOfLifeadd(GAMEOFLIFEHANDLE handle, INT n1, INT n2);
+EXTERN_C PROJECTAPI INT APIENTRY project_add(PROJECTHANDLE handle, INT n1, INT n2);
 
-EXTERN_C GAMEOFLIFEAPI VOID APIENTRY GameOfLiferelease(GAMEOFLIFEHANDLE handle);
+EXTERN_C PROJECTAPI VOID APIENTRY project_release(PROJECTHANDLE handle);
