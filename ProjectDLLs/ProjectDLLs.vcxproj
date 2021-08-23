@@ -151,14 +151,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="FileEditor.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GenericDLLProj.h" />
-    <ClInclude Include="GenericProjectFunctions.h" />
+    <ClInclude Include="TwoDimSimulationImplementation.h" />
+    <ClInclude Include="TwoDimSimulationProject.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="GenericProjectFunctions.cpp" />
+    <ClCompile Include="FileEditor.cpp" />
+    <ClCompile Include="TwoDimSimulationImplementation.cpp" />
+    <ClCompile Include="TwoDimSimulationProject.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -168,6 +172,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="AddProject.bat" />
+    <None Include="DeleteProject.bat" />
+    <None Include="EditProject.bat" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

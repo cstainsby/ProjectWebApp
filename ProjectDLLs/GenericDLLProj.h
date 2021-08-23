@@ -8,14 +8,8 @@
 #ifdef __cplusplus	
 struct IProject
 {
-	virtual int add(int n1, int n2) = 0;
+	virtual void init() = 0;
 	virtual void release() = 0;
-};
-
-class PROJECTAPI CProject
-{
-public:
-	int add(int, int);
 };
 
 typedef IProject* PROJECTHANDLE;

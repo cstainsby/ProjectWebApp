@@ -14,11 +14,10 @@ cd %projectRoot%\
 cd ..
 
 :check
-if exist %projectRoot%\ (
-	for /F %%i in ('dir /b %projectRoot%') do (
-	   goto :eof
-	)
-	rmdir /Q /S %projectRoot%
+if exist %projectRoot%\%filename%\ (
+	echo "Error deleting %filename% project"
+	echo :eof
 )
 
+:end
 echo "Project successfully deleted"

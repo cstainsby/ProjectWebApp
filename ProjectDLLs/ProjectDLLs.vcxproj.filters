@@ -12,11 +12,20 @@
     <Filter Include="Scripts">
       <UniqueIdentifier>{e488474e-1fef-4a6b-95a2-e1289ba92cc8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ProjectSpecificFiles">
-      <UniqueIdentifier>{e0e84931-25bb-492d-a826-5ea19603bd9b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Resources">
       <UniqueIdentifier>{e5ea541f-afb6-42d3-876c-66ca9cf76637}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\DataStructures">
+      <UniqueIdentifier>{0a97e19d-e40d-48ac-8e3e-ee62e9e60779}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Boilerplate">
+      <UniqueIdentifier>{d8057ea3-969d-44a4-8eea-ee2239ce2bef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Boilerplate\Simulation">
+      <UniqueIdentifier>{13a55fe6-53da-4db4-aacb-85efa513fe9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Boilerplate\Simulation\2D">
+      <UniqueIdentifier>{ae9a1753-502c-46a9-92a2-4acb976259c1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -29,8 +38,14 @@
     <ClInclude Include="GenericDLLProj.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GenericProjectFunctions.h">
+    <ClInclude Include="TwoDimSimulationProject.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileEditor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TwoDimSimulationImplementation.h">
+      <Filter>Resources\Boilerplate\Simulation\2D</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -40,12 +55,24 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GenericProjectFunctions.cpp">
+    <ClCompile Include="TwoDimSimulationProject.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileEditor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TwoDimSimulationImplementation.cpp">
+      <Filter>Resources\Boilerplate\Simulation\2D</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="AddProject.bat">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="DeleteProject.bat">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="EditProject.bat">
       <Filter>Scripts</Filter>
     </None>
   </ItemGroup>

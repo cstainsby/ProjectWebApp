@@ -60,4 +60,5 @@ if not exist %projectRoot%\%filename%\tests\ (
 	goto :eof
 )
 
+:end
 echo "All files created and validated"
