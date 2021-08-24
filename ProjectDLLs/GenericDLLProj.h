@@ -5,7 +5,7 @@
 #define PROJECTAPI __declspec(dllimport)
 #endif
 
-#ifdef __cplusplus	
+#ifdef __cplusplus
 struct IProject
 {
 	virtual void init() = 0;

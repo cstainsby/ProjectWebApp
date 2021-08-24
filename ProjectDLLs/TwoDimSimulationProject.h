@@ -1,27 +1,34 @@
 #include "pch.h"
 #include "GenericDLLProj.h"
 
+template<typename T>
 class TwoDimSimulationProject : public IProject
 {
 public:
-	TwoDimSimulationProject();
-
-	void release();
+	void release();                      // call for destructor 
+	T* getGrid();                        // gets the current state of the grid
 
 protected:
-	int *TwoDimGrid; // might need to 
-	int N;
-	int gridArea;
+	
+	T* displayedGrid;  // this 2d grid is the grid that will be sent to the display
+	int N;             // this is the side length of the grid
+	int gridArea;      // this is the total number of squares in the grid 
 
-	void nextStep(); // facilitates the main behavior of the Simulation
+	// functions that are the same accross 
 
-	int findIndex(int i, int j); // finds the 1D equivalent coordinate given 2D (i,j)
+	TwoDimSimulationProject();           // constructor
+	~TwoDimSimulationProject();          // destructor 
+	int findIndex(int i, int j);         // finds the 1D equivalent coordinate given 2D (i,j)
+
+	// virtual functions that must be in each simulation but implemented seperatly
+
+	virtual void nextStep() = 0;         // facilitates the main behavior of the Simulation
 };
 
 // Factory function which creates Project object
 EXTERN_C PROJECTAPI PROJECTHANDLE WINAPI get_instance(VOID);
 
-// functions 
-EXTERN_C PROJECTAPI INT APIENTRY project_add_interaction(PROJECTHANDLE handle, INT n1, INT n2);
-
+// export functions 
 EXTERN_C PROJECTAPI VOID APIENTRY project_release(PROJECTHANDLE handle);
+
+EXTERN_C PROJECTAPI T* APIENTRY project_get_grid(PROJECTHANDLE handle);

@@ -1,29 +1,47 @@
 #include "pch.h"
 #include "TwoDimSimulationProject.h"
 
-
-TwoDimSimulationProject::TwoDimSimulationProject()
+template<typename T>
+TwoDimSimulationProject<T>::TwoDimSimulationProject()
 {
 	
 }
 
-PROJECTAPI INT APIENTRY project_add_interaction(PROJECTHANDLE handle, INT n1, INT n2)
+template<typename T> 
+TwoDimSimulationProject<T>::~TwoDimSimulationProject()
 {
-	int nResult = -1;
 
-	if (handle) {
-		nResult = handle->add(n1, n2);
-	}
-
-	return nResult;
 }
 
-void TwoDimSimulationProject::release()
+template<typename T>
+int TwoDimSimulationProject<T>::findIndex(int i, int j) 
 {
 
+}
+
+
+template<typename T> 
+T* TwoDimSimulationProject<T>::getGrid() 
+{
+	return displayedGrid;
+}
+
+template<typename T>
+PROJECTAPI T* APIENTRY project_get_grid(PROJECTHANDLE handle) 
+{
+	if (handle) {
+		handle->getGrid();
+	}
+}
+
+
+template<typename T>
+void TwoDimSimulationProject<T>::release()
+{
 	delete this;
 }
 
+template<typename T>
 PROJECTAPI VOID APIENTRY project_release(PROJECTHANDLE handle)
 {
 	if (handle) {
@@ -36,6 +54,7 @@ PROJECTAPI VOID APIENTRY project_release(PROJECTHANDLE handle)
 #pragma comment(linker, "/export:GetInstance=_GetInstance@0")
 #endif //_WIN64
 
+template<typename T>
 PROJECTAPI PROJECTHANDLE APIENTRY get_instance()
 {
 	return new ProjectObj;
