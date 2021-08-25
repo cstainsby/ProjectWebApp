@@ -21,12 +21,6 @@
     <Filter Include="Resources\Boilerplate">
       <UniqueIdentifier>{d8057ea3-969d-44a4-8eea-ee2239ce2bef}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resources\Boilerplate\Simulation">
-      <UniqueIdentifier>{13a55fe6-53da-4db4-aacb-85efa513fe9e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resources\Boilerplate\Simulation\2D">
-      <UniqueIdentifier>{ae9a1753-502c-46a9-92a2-4acb976259c1}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -41,12 +35,6 @@
     <ClInclude Include="TwoDimSimulationProject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FileEditor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TwoDimSimulationImplementation.h">
-      <Filter>Resources\Boilerplate\Simulation\2D</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -57,12 +45,6 @@
     </ClCompile>
     <ClCompile Include="TwoDimSimulationProject.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FileEditor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TwoDimSimulationImplementation.cpp">
-      <Filter>Resources\Boilerplate\Simulation\2D</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

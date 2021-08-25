@@ -151,17 +151,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="FileEditor.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GenericDLLProj.h" />
-    <ClInclude Include="TwoDimSimulationImplementation.h" />
     <ClInclude Include="TwoDimSimulationProject.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="FileEditor.cpp" />
-    <ClCompile Include="TwoDimSimulationImplementation.cpp" />
     <ClCompile Include="TwoDimSimulationProject.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
