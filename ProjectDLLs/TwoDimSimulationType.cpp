@@ -1,25 +1,16 @@
 #include "pch.h"
-#include "TwoDimSimulationProject.h"
+#include "TwoDimSimulationType.h"
 
-// DVC
-TwoDimSimulationProject::TwoDimSimulationProject()
-{
-	
-}
-
-// Destructor
-TwoDimSimulationProject::~TwoDimSimulationProject()
-{
-
-}
 
 // helper function that finds the 1D equivalent coordinate given 2D (i,j)
-int TwoDimSimulationProject::findIndex(int i, int j) 
+int TwoDimSimulationType::findIndex(int i, int j) const
 {
-
+	return ((N+2)*j)+i;
 }
 
-void TwoDimSimulationProject::init() 
+// ---------- exported functions -----------
+// initializes the project in a given format based on inputs
+void TwoDimSimulationType::init() 
 {
 
 }
@@ -31,7 +22,7 @@ PROJECTAPI VOID APIENTRY project_init(PROJECTHANDLE<FLOAT> handle)
 	}
 }
 
-float* TwoDimSimulationProject::getProjectState() 
+float* TwoDimSimulationType::getProjectState() 
 {
 	return displayedGrid;
 }
@@ -44,7 +35,7 @@ PROJECTAPI FLOAT* APIENTRY project_get_project_state(PROJECTHANDLE<FLOAT> handle
 }
 
 
-void TwoDimSimulationProject::release()
+void TwoDimSimulationType::release()
 {
 	delete this;
 }
@@ -56,12 +47,3 @@ PROJECTAPI VOID APIENTRY project_release(PROJECTHANDLE<FLOAT> handle)
 	}
 }
 
-// Factory function for the object
-#if !defined(_WIN64)
-#pragma comment(linker, "/export:GetInstance=_GetInstance@0")
-#endif //_WIN64
-
-PROJECTAPI PROJECTHANDLE<FLOAT> APIENTRY get_instance()
-{
-	return new ProjectObj;
-}

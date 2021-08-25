@@ -151,14 +151,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="TwoDimFluidSimulationProject.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GenericDLLProj.h" />
-    <ClInclude Include="TwoDimSimulationProject.h" />
+    <ClInclude Include="TwoDimSimulationType.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="TwoDimSimulationProject.cpp" />
+    <ClCompile Include="TwoDimFluidSimulationProject.cpp" />
+    <ClCompile Include="TwoDimSimulationType.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

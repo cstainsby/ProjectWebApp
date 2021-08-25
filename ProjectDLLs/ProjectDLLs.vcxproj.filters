@@ -32,7 +32,10 @@
     <ClInclude Include="GenericDLLProj.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TwoDimSimulationProject.h">
+    <ClInclude Include="TwoDimSimulationType.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TwoDimFluidSimulationProject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -43,7 +46,10 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TwoDimSimulationProject.cpp">
+    <ClCompile Include="TwoDimSimulationType.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TwoDimFluidSimulationProject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
