@@ -35,7 +35,7 @@
     <ClInclude Include="TwoDimSimulationType.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TwoDimFluidSimulationProject.h">
+    <ClInclude Include="TwoDimSimulation_Fluid.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -49,7 +49,10 @@
     <ClCompile Include="TwoDimSimulationType.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TwoDimFluidSimulationProject.cpp">
+    <ClCompile Include="TwoDimSimulation_Fluid_Functions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TwoDimSimulation_Fluid_Exports.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

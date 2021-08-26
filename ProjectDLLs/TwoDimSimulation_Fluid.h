@@ -2,11 +2,15 @@
 #include "TwoDimSimulationType.h"
 #include <string>
 
-class TwoDimSimulation_Fluid : TwoDimSimulationType 
+class TwoDimSimulation_Fluid : public TwoDimSimulationType 
 {
 public:
 	TwoDimSimulation_Fluid();   // DVC
 	~TwoDimSimulation_Fluid();  // EVC
+
+	void init();
+	float* getProjectState();
+	void release();
 
 private:
 	// private member attributes
