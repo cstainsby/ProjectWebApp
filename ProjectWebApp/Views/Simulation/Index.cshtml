@@ -4,7 +4,7 @@
 @{
 }
 
-@model IEnumerable<DataAccess.Models.SimulationModel>
+@model IEnumerable<DataAccess.Models.SimulationProjectModel>
 
 <h1>Simulation</h1>
 <table class="table">
@@ -12,7 +12,7 @@
     </thead>
 
     <tbody>
-        @foreach (var Simulation in ViewData["Simulation Data"] as IEnumerable<DataAccess.Models.SimulationModel>)
+        @foreach (var Simulation in ViewData["Simulation Data"] as IEnumerable<DataAccess.Models.SimulationProjectModel>)
         {
             <tr>
                 <td>

@@ -23,7 +23,7 @@ namespace ProjectUnitTests.Repositories
         {
             // Arrange
             // get sample sims by passing in null IEnumerable into sample helper 
-            IEnumerable<SimulationModel> sample_simulations = null;
+            IEnumerable<SimulationProjectModel> sample_simulations = null;
             int sample_size = GetSampleSimulationsHelper(ref sample_simulations);
 
             // mock the Simulation repository
@@ -51,7 +51,7 @@ namespace ProjectUnitTests.Repositories
         {
             // Arrange
             // get sample sims by passing in null IEnumerable into sample helper 
-            IEnumerable<SimulationModel> sample_simulations = null;
+            IEnumerable<SimulationProjectModel> sample_simulations = null;
             int sample_size = GetSampleSimulationsHelper(ref sample_simulations);
 
             // mock the Simulation repository
@@ -77,7 +77,7 @@ namespace ProjectUnitTests.Repositories
             var actual = await unit_sim_repo.GetByIdAsync(any_index);
 
             // find product from sim_repo at the same index
-            SimulationModel test_sims = await sim_repo.GetByIdAsync(any_index);
+            SimulationProjectModel test_sims = await sim_repo.GetByIdAsync(any_index);
 
             // Assert
             // neither the test or the actual results should be null
@@ -98,10 +98,10 @@ namespace ProjectUnitTests.Repositories
         {
             // Arrange
             // get sample sims by passing in null IEnumerable into sample helper 
-            IEnumerable<SimulationModel> sample_simulations = null;
+            IEnumerable<SimulationProjectModel> sample_simulations = null;
             int sample_size = GetSampleSimulationsHelper(ref sample_simulations);
 
-            SimulationModel add_sim = new SimulationModel()
+            SimulationProjectModel add_sim = new SimulationProjectModel()
             {
                 Id = 3,
                 simName = "new sim",
@@ -137,8 +137,8 @@ namespace ProjectUnitTests.Repositories
 
             // get the added model from each of the repos
             // this assumes the get by Id function is working ------
-            SimulationModel actual_model = await unit_sim_repo.GetByIdAsync(3);
-            SimulationModel test_model = await sim_repo.GetByIdAsync(3);
+            SimulationProjectModel actual_model = await unit_sim_repo.GetByIdAsync(3);
+            SimulationProjectModel test_model = await sim_repo.GetByIdAsync(3);
 
             var actual_list = await unit_sim_repo.GetAllAsync();
             int actual_element_count = actual_list.ToList().Count;
@@ -155,10 +155,10 @@ namespace ProjectUnitTests.Repositories
         {
             // Arrange
             // get sample sims by passing in null IEnumerable into sample helper 
-            IEnumerable<SimulationModel> sample_simulations = null;
+            IEnumerable<SimulationProjectModel> sample_simulations = null;
             int sample_size = GetSampleSimulationsHelper(ref sample_simulations);
 
-            SimulationModel add_sim = new SimulationModel()
+            SimulationProjectModel add_sim = new SimulationProjectModel()
             {
                 Id = 3,
                 simName = "new sim",
@@ -191,8 +191,8 @@ namespace ProjectUnitTests.Repositories
 
             // get the added model from each of the repos
             // this assumes the get by Id function is working ------
-            SimulationModel actual_model = await unit_sim_repo.GetByIdAsync(3);
-            SimulationModel test_model = await sim_repo.GetByIdAsync(3);
+            SimulationProjectModel actual_model = await unit_sim_repo.GetByIdAsync(3);
+            SimulationProjectModel test_model = await sim_repo.GetByIdAsync(3);
 
             // Assert
             // both the test_return_val and actual should return 1
@@ -213,8 +213,8 @@ namespace ProjectUnitTests.Repositories
         private async void VerifySimulations(int expected_size, ISimulationRepository actual, ISimulationRepository test)
         {
             // retrieve all simulations in the db
-            IEnumerable<SimulationModel> actual_enumerable = await actual.GetAllAsync();
-            IEnumerable<SimulationModel> test_enumerable = await test.GetAllAsync();
+            IEnumerable<SimulationProjectModel> actual_enumerable = await actual.GetAllAsync();
+            IEnumerable<SimulationProjectModel> test_enumerable = await test.GetAllAsync();
 
             // Both enumerables shouldn't be null
             Assert.NotNull(actual_enumerable);
@@ -227,8 +227,8 @@ namespace ProjectUnitTests.Repositories
             // run through each element in the list currently at each index and check if they are equal
             for(int i = 0; i < expected_size; ++i)
             {
-                SimulationModel actual_at_i = actual_enumerable.ElementAt(i);
-                SimulationModel test_at_i = test_enumerable.ElementAt(i);
+                SimulationProjectModel actual_at_i = actual_enumerable.ElementAt(i);
+                SimulationProjectModel test_at_i = test_enumerable.ElementAt(i);
 
                 // check that the models arent null
                 Assert.NotNull(actual_at_i);
@@ -243,19 +243,19 @@ namespace ProjectUnitTests.Repositories
         }
 
         // helper function to generate sample simulations to work with 
-        private int GetSampleSimulationsHelper(ref IEnumerable<SimulationModel> sample_sims)
+        private int GetSampleSimulationsHelper(ref IEnumerable<SimulationProjectModel> sample_sims)
         {
             // sample sims is being passed in by reference, add sample simulations here
-            sample_sims = new List<SimulationModel>
+            sample_sims = new List<SimulationProjectModel>
             {
-                new SimulationModel
+                new SimulationProjectModel
                 {
                     simName = "Fluid Sim",
                     gitURL = "https://github.com/cstainsby/FluidSimulator",
                     simDesc = "words w0rds"
                 },
 
-                new SimulationModel
+                new SimulationProjectModel
                 {
                     simName = "Color Sim",
                     gitURL = "https://github.com/cstainsby",

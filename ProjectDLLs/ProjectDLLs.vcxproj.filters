@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Scripts">
+      <UniqueIdentifier>{e488474e-1fef-4a6b-95a2-e1289ba92cc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{e5ea541f-afb6-42d3-876c-66ca9cf76637}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\DataStructures">
+      <UniqueIdentifier>{0a97e19d-e40d-48ac-8e3e-ee62e9e60779}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Boilerplate">
+      <UniqueIdentifier>{d8057ea3-969d-44a4-8eea-ee2239ce2bef}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="framework.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GenericDLLProj.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TwoDimSimulationType.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TwoDimSimulation_Fluid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HashTableCollection.h">
+      <Filter>Resources\DataStructures</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrayList.h">
+      <Filter>Resources\DataStructures</Filter>
+    </ClInclude>
+    <ClInclude Include="Collection.h">
+      <Filter>Resources\DataStructures</Filter>
+    </ClInclude>
+    <ClInclude Include="List.h">
+      <Filter>Resources\DataStructures</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrayListCollection.h">
+      <Filter>Resources\DataStructures</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TwoDimSimulationType.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TwoDimSimulation_Fluid_Functions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TwoDimSimulation_Fluid_Exports.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AddProject.bat">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="DeleteProject.bat">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="EditProject.bat">
+      <Filter>Scripts</Filter>
+    </None>
+  </ItemGroup>
+</Project>

@@ -13,9 +13,13 @@ using DataAccess.Models;
 
 namespace DataAccess.Repositories
 {
-    public interface ISimulationRepository : IRepository<SimulationModel>
+    public interface ISimulationRepository : IRepository<SimulationProjectModel>
     {
-        Task<IEnumerable<SimulationModel>> GetAllAsync();
-        Task<int> AddAsync(SimulationModel entity);
+        Task<IEnumerable<SimulationProjectModel>> GetAllAsync();
+        Task<int> AddAsync(int Id,
+                    string simName,
+                    string simDesc,
+                    string gitURL,
+                    int dimensions);
     }
 }

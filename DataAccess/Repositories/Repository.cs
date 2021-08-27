@@ -15,7 +15,7 @@ using System.Data;
 
 namespace DataAccess.Repositories
 {
-    internal class Repository<T> : AbstractRepository, IRepository<T> where T : AbstractModel
+    internal class Repository<T> : AbstractRepository, IRepository<T> where T : AbstractProjectModel
     {
         public Repository(IDbTransaction _transaction) : base(_transaction)
         {
