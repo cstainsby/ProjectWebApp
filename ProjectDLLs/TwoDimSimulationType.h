@@ -1,16 +1,18 @@
 #include "pch.h"
 #include "GenericDLLProj.h"
+#include "ArrayListCollection.h"
 
 // define T as a float in the simulation project
 class TwoDimSimulationType : public IProject<float>
 {
 public:
-
 	// virtual functions that must be in each simulation but implemented seperatly
 	virtual void init() = 0;                         // initiliazes project to a set state
 	virtual float* getProjectState() = 0;            // returns displayed grid
 	virtual void release() = 0;                      // call for destructor
 	virtual void nextStep() = 0;                     // facilitates the main behavior of the Simulation
+
+
 
 protected:
 	// member attributes each 2D simulation should have

@@ -33,4 +33,6 @@
 #include "framework.h"
 #include "stdio.h"
 
+#include <string>
+
 #endif //PCH_H

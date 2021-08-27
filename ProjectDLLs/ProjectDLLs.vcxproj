@@ -151,6 +151,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ArrayList.h" />
+    <ClInclude Include="ArrayListCollection.h" />
+    <ClInclude Include="Collection.h" />
+    <ClInclude Include="HashTableCollection.h" />
+    <ClInclude Include="List.h" />
     <ClInclude Include="TwoDimSimulation_Fluid.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GenericDLLProj.h" />

@@ -15,24 +15,6 @@ void TwoDimSimulationType::init()
 
 }
 
-PROJECTAPI VOID APIENTRY project_init(PROJECTHANDLE<FLOAT> handle) 
-{
-	if (handle) {
-		handle->init();
-	}
-}
-
-float* TwoDimSimulationType::getProjectState() 
-{
-	return displayedGrid;
-}
-
-PROJECTAPI FLOAT* APIENTRY project_get_project_state(PROJECTHANDLE<FLOAT> handle) 
-{
-	if (handle) {
-		handle->getProjectState();
-	}
-}
 
 
 void TwoDimSimulationType::release()
@@ -40,10 +22,5 @@ void TwoDimSimulationType::release()
 	delete this;
 }
 
-PROJECTAPI VOID APIENTRY project_release(PROJECTHANDLE<FLOAT> handle)
-{
-	if (handle) {
-		handle->release();
-	}
-}
+
 

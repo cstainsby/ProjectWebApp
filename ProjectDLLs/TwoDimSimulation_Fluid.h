@@ -1,6 +1,5 @@
 #pragma once
 #include "TwoDimSimulationType.h"
-#include <string>
 
 class TwoDimSimulation_Fluid : public TwoDimSimulationType 
 {
@@ -31,6 +30,10 @@ private:
 	void setViscocity(float viscocity);
 	void setDiff(float diff);
 	void setDt(float dt);
+
+	// interaction function with simulation
+	void addDensity(int x, int y, float densityAdded);
+	void addVelocity(int x, int y, float xVel, float yVel);
 
 	// main simulation member functions 
 	void nextStep();

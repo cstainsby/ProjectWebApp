@@ -38,6 +38,21 @@
     <ClInclude Include="TwoDimSimulation_Fluid.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="HashTableCollection.h">
+      <Filter>Resources\DataStructures</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrayList.h">
+      <Filter>Resources\DataStructures</Filter>
+    </ClInclude>
+    <ClInclude Include="Collection.h">
+      <Filter>Resources\DataStructures</Filter>
+    </ClInclude>
+    <ClInclude Include="List.h">
+      <Filter>Resources\DataStructures</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrayListCollection.h">
+      <Filter>Resources\DataStructures</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
