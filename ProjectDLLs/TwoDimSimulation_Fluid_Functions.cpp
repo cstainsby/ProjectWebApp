@@ -23,16 +23,21 @@ TwoDimSimulation_Fluid::TwoDimSimulation_Fluid() {
         s[i] = 0;
         density[i] = 0;
     }
+
+    // setup functions in settingInteractionList and viewInteractionList
+    auto func = &setViscocity;
+    settingInteractionList.add("viscocity", &setViscocity);
+    settingInteractionList.add()
 }
 
 // Destructor
 TwoDimSimulation_Fluid::~TwoDimSimulation_Fluid() {
-    delete[]velX;
-    delete[]velY;
-    delete[]velX_0;
-    delete[]velY_0;
-    delete[]s;
-    delete[]density;
+    delete []velX;
+    delete []velY;
+    delete []velX_0;
+    delete []velY_0;
+    delete []s;
+    delete []density;
 }
 
 
@@ -64,6 +69,7 @@ void TwoDimSimulation_Fluid::nextStep() {
     advect(0, density, s, velX, velY, dt);
 }
 
+// 
 // add Density
 void TwoDimSimulation_Fluid::addDensity(int x, int y, float densityAdded) {
     density[findIndex(x, y)] += densityAdded;
@@ -75,10 +81,6 @@ void TwoDimSimulation_Fluid::addVelocity(int x, int y, float xVel, float yVel) {
     velY_0[findIndex(x, y)] += yVel;
 }
 
-void TwoDimSimulation_Fluid::setSettings(std::string settingName, float value)
-{
-    if()
-}
 
 // set viscocity
 void TwoDimSimulation_Fluid::setViscocity(float viscocity)

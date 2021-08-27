@@ -8,19 +8,4 @@ int TwoDimSimulationType::findIndex(int i, int j) const
 	return ((N+2)*j)+i;
 }
 
-// ---------- exported functions -----------
-// initializes the project in a given format based on inputs
-void TwoDimSimulationType::init() 
-{
-
-}
-
-
-
-void TwoDimSimulationType::release()
-{
-	delete this;
-}
-
-
 

@@ -34,5 +34,6 @@
 #include "stdio.h"
 
 #include <string>
+#include "ArrayListCollection.h"
 
 #endif //PCH_H
