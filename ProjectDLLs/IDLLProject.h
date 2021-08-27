@@ -16,7 +16,7 @@ struct IDLLProject
 	typedef void (subclass::*viewReturnFunc)(T*&);
 	ArrayListCollection<std::string, viewReturnFunc> viewInteractionList;  // kv list, key: string identifier, value: view getter functions relating to string
 
-	virtual void init() = 0;                                                     // initializes the project
+	virtual void init(std::string projectName) = 0;                              // initializes the project
 	virtual T* getProjectState() = 0;                                            // gets an array to be displayed in the view
 	virtual void setView(std::string viewName) = 0;                              // sets the view to 
 	virtual void setSetting(std::string settingName, T value) = 0;               // changes the value of a given setting

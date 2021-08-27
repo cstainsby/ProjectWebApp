@@ -31,6 +31,10 @@ private:
 	void addDensity(int x, int y, float densityAdded);
 	void addVelocity(int x, int y, float xVel, float yVel);
 
+	// view functions 
+	void getDensity(float*& denArr);
+	void getVelocity(float*& velXArr, float*& velYArr);
+
 	// main simulation member functions 
 	void nextStep();
 
