@@ -15,6 +15,8 @@ TwoDimSimulation_Fluid::TwoDimSimulation_Fluid() {
     this->s = new float[gridArea];
     this->density = new float[gridArea];
 
+    //this->settingInteractionList = new ArrayListCollection<std::string, settingSetterFunc>();
+
     for (int i = 0; i < gridArea; ++i) {
         velX[i] = 0;
         velY[i] = 0;
@@ -107,14 +109,20 @@ void TwoDimSimulation_Fluid::getDensity(float*& denArr) {
     }
 }
 
-void TwoDimSimulation_Fluid::getVelocity(float*& velXArr, float*& velYArr) {
+void TwoDimSimulation_Fluid::getXVelocity(float*& velXArr) {
 
     velXArr = new float[gridArea];
+
+    for (int i = 0; i < gridArea; ++i) {
+        velXArr[i] = velX_0[i];
+    }
+}
+
+void TwoDimSimulation_Fluid::getYVelocity(float*& velYArr) {
     velYArr = new float[gridArea];
 
     for (int i = 0; i < gridArea; ++i) {
         velYArr[i] = velY_0[i];
-        velXArr[i] = velX_0[i];
     }
 }
 

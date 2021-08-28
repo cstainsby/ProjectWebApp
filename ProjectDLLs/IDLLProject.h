@@ -6,16 +6,10 @@
 #endif
 
 #ifdef __cplusplus
-template<typename subclass, typename T>
+template<typename T>
 struct IDLLProject
 {
-	// function lists for settings and views
-	typedef void (subclass::*settingSetterFunc)(T);
-	ArrayListCollection<std::string, settingSetterFunc> settingInteractionList;   // kv list, key: string identifier, value: setting setter functions relating to string
-
-	typedef void (subclass::*viewReturnFunc)(T*&);
-	ArrayListCollection<std::string, viewReturnFunc> viewInteractionList;  // kv list, key: string identifier, value: view getter functions relating to string
-
+	// virtual functions that will be used in every project and will be exported to c# program
 	virtual void init(std::string projectName) = 0;                              // initializes the project
 	virtual T* getProjectState() = 0;                                            // gets an array to be displayed in the view
 	virtual void setView(std::string viewName) = 0;                              // sets the view to 

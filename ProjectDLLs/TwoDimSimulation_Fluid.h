@@ -33,7 +33,8 @@ private:
 
 	// view functions 
 	void getDensity(float*& denArr);
-	void getVelocity(float*& velXArr, float*& velYArr);
+	void getXVelocity(float*& velXArr);
+	void getYVelocity(float*& velYArr);
 
 	// main simulation member functions 
 	void nextStep();
