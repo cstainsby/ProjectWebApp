@@ -65,12 +65,6 @@
     <ClInclude Include="IDLLProject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TwoDimSimulationBoiler.h">
-      <Filter>Resources\Boilerplate</Filter>
-    </ClInclude>
-    <ClInclude Include="SimulationBoilerplate.h">
-      <Filter>Resources\Boilerplate</Filter>
-    </ClInclude>
     <ClInclude Include="TwoDimSimulationFactory.h">
       <Filter>Projects\TwoDimSimulation\Factory</Filter>
     </ClInclude>
@@ -80,8 +74,20 @@
     <ClInclude Include="TwoDimSimulation_Fluid.h">
       <Filter>Projects\TwoDimSimulation\Implementation\Fluid</Filter>
     </ClInclude>
-    <ClInclude Include="TwoDimSimulationDLLFacade.h">
+    <ClInclude Include="TwoDimSimulationDLL.h">
       <Filter>Projects\TwoDimSimulation\DLLFacade</Filter>
+    </ClInclude>
+    <ClInclude Include="TwoDimSimulation_FluidFacade.h">
+      <Filter>Projects\TwoDimSimulation\Implementation\Fluid</Filter>
+    </ClInclude>
+    <ClInclude Include="Interactable.h">
+      <Filter>Resources\Boilerplate</Filter>
+    </ClInclude>
+    <ClInclude Include="Setting.h">
+      <Filter>Resources\Boilerplate</Filter>
+    </ClInclude>
+    <ClInclude Include="View.h">
+      <Filter>Resources\Boilerplate</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -91,23 +97,20 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TwoDimSimulationBoiler.cpp">
-      <Filter>Resources\Boilerplate</Filter>
-    </ClCompile>
-    <ClCompile Include="SimulationBoilerplate.cpp">
-      <Filter>Resources\Boilerplate</Filter>
-    </ClCompile>
     <ClCompile Include="TwoDimSimulationType.cpp">
       <Filter>Projects\TwoDimSimulation</Filter>
     </ClCompile>
     <ClCompile Include="TwoDimSimulation_Fluid.cpp">
       <Filter>Projects\TwoDimSimulation\Implementation\Fluid</Filter>
     </ClCompile>
-    <ClCompile Include="TwoDimSimulationDLLFacade_Funcs.cpp">
+    <ClCompile Include="TwoDimSimulationDLL_Funcs.cpp">
       <Filter>Projects\TwoDimSimulation\DLLFacade</Filter>
     </ClCompile>
-    <ClCompile Include="TwoDimSimulationDLLFacade_Export.cpp">
+    <ClCompile Include="TwoDimSimulationDLL_Export.cpp">
       <Filter>Projects\TwoDimSimulation\DLLFacade</Filter>
+    </ClCompile>
+    <ClCompile Include="TwoDimSimulation_FluidFacade.cpp">
+      <Filter>Projects\TwoDimSimulation\Implementation\Fluid</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

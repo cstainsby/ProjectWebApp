@@ -154,24 +154,24 @@
     <ClInclude Include="ArrayList.h" />
     <ClInclude Include="ArrayListCollection.h" />
     <ClInclude Include="Collection.h" />
-    <ClInclude Include="TwoDimSimulationDLLFacade.h" />
+    <ClInclude Include="Interactable.h" />
+    <ClInclude Include="Setting.h" />
+    <ClInclude Include="TwoDimSimulationDLL.h" />
     <ClInclude Include="HashTableCollection.h" />
     <ClInclude Include="IDLLProject.h" />
     <ClInclude Include="List.h" />
-    <ClInclude Include="SimulationBoilerplate.h" />
-    <ClInclude Include="TwoDimSimulationBoiler.h" />
     <ClInclude Include="TwoDimSimulationFactory.h" />
     <ClInclude Include="TwoDimSimulation_Fluid.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="TwoDimSimulationType.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="TwoDimSimulation_FluidFacade.h" />
+    <ClInclude Include="View.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="TwoDimSimulationDLLFacade_Funcs.cpp" />
-    <ClCompile Include="SimulationBoilerplate.cpp" />
-    <ClCompile Include="TwoDimSimulationBoiler.cpp" />
-    <ClCompile Include="TwoDimSimulationDLLFacade_Export.cpp" />
+    <ClCompile Include="TwoDimSimulationDLL_Funcs.cpp" />
+    <ClCompile Include="TwoDimSimulationDLL_Export.cpp" />
     <ClCompile Include="TwoDimSimulation_Fluid.cpp" />
     <ClCompile Include="TwoDimSimulationType.cpp" />
     <ClCompile Include="pch.cpp">
@@ -180,6 +180,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="TwoDimSimulation_FluidFacade.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="AddProject.bat" />

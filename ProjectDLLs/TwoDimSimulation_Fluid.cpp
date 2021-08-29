@@ -37,7 +37,6 @@ TwoDimSimulation_Fluid::~TwoDimSimulation_Fluid() {
     delete []density;
 }
 
-
 // ------------- user interactable functions --------------
 // this function will be looped to play the simulation
 // include a velocity and density step

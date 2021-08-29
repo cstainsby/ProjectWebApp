@@ -15,13 +15,7 @@ void TwoDimSimulationDLL::update()
 }
 
 // gets an array to be displayed in the view
-float* TwoDimSimulationDLL::getProjectState()
-{
-
-}
-
-// sets the view to a given type
-void TwoDimSimulationDLL::setView(std::string viewName)
+float* TwoDimSimulationDLL::getView(std::string viewName)
 {
 
 }

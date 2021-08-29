@@ -3,8 +3,6 @@
 
 class TwoDimSimulationType 
 {
-public:
-
 protected:
 	// member attributes each 2D simulation should have
 	int N;             // this is the side length of the grid
