@@ -53,5 +53,5 @@ PROJECTAPI VOID APIENTRY project_interact(PROJECTHANDLE<FLOAT> handle, CHAR* inp
 
 PROJECTAPI PROJECTHANDLE<FLOAT> APIENTRY get_instance()
 {
-	return new TwoDimSimulation_Fluid;
+	return new TwoDimSimulationDLL;
 }
