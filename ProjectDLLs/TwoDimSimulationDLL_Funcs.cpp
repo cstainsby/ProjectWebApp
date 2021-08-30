@@ -8,12 +8,6 @@ void TwoDimSimulationDLL::init(std::string projectName)
 	this->projectWrapper = factory.makeTwoDimSimulationObj(projectName);
 }
 
-// updates the project state
-void TwoDimSimulationDLL::update()
-{
-	this->projectWrapper->update();
-}
-
 // gets an array to be displayed in the view
 float* TwoDimSimulationDLL::getView(std::string viewName)
 {
@@ -33,7 +27,13 @@ void TwoDimSimulationDLL::setSetting(std::string settingName, float value)
 // take input type and coordinates and decides how to handle the request
 void TwoDimSimulationDLL::interact(std::string inputType, int xCord, int yCord)
 {
+	this->projectWrapper->interact(inputType, xCord, yCord);
+}
 
+// updates the project state
+void TwoDimSimulationDLL::update()
+{
+	this->projectWrapper->update();
 }
 
 // delete all on memory items in object
