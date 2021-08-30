@@ -8,6 +8,10 @@ TwoDimSimulation_Fluid::TwoDimSimulation_Fluid() {
     this->viscocity = 1;
     this->diff = 1;
     this->dt = 1;
+
+    this->densityRate = 1;
+    this->velocityRate = 1;
+
     this->velX = new float[gridArea];
     this->velY = new float[gridArea];
     this->velX_0 = new float[gridArea];
@@ -67,8 +71,8 @@ void TwoDimSimulation_Fluid::nextStep() {
 
 // 
 // add Density
-void TwoDimSimulation_Fluid::addDensity(int x, int y, float densityAdded) {
-    density[findIndex(x, y)] += densityAdded;
+void TwoDimSimulation_Fluid::addDensity(int x, int y) {
+    density[findIndex(x, y)] += this->densityRate;
 }
 
 // add velocity
@@ -94,6 +98,19 @@ void TwoDimSimulation_Fluid::setDiff(float diff)
 void TwoDimSimulation_Fluid::setDt(float dt)
 {
     this->dt = dt;
+}
+
+
+void TwoDimSimulation_Fluid::setDensityRate() {
+
+}
+
+void TwoDimSimulation_Fluid::setXVelocityRate() {
+
+}
+
+void TwoDimSimulation_Fluid::setYVelocityRate() {
+
 }
 
 // ------------- display return functions --------------

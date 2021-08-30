@@ -11,9 +11,12 @@ public:
 	void setViscocity(float viscocity);
 	void setDiff(float diff);
 	void setDt(float dt);
+	void setDensityRate();
+	void setXVelocityRate();
+	void setYVelocityRate();
 
 	// interaction function with simulation
-	void addDensity(int x, int y, float densityAdded);
+	void addDensity(int x, int y);
 	void addVelocity(int x, int y, float xVel, float yVel);
 
 	// view functions 
@@ -30,6 +33,8 @@ private:
 	float viscocity;
 	float diff;
 	float dt;
+	float densityRate;                           // rate of liquid added when clicking 
+	std::pair<float, float> velocityRate;        // how fast liquid is displaced when clicking (pair::<xVel,yVel>)
 
 	// arrays that hold state of project 
 	float* velX; // x components of the vector field (next itteration)

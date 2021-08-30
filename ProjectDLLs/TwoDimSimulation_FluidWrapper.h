@@ -25,10 +25,16 @@ public:
 	// use dependancy injection to link a given project with dll calls
 	TwoDimSimulation_FluidWrapper(TwoDimSimulation_Fluid* project);
 
+	// overloaded destructor
+	~TwoDimSimulation_FluidWrapper();
+
 	// call to change a given setting
-	void EditSetting(const std::string setting, float newVal);
+	void setSetting(const std::string setting, float newVal);
 
 	// get view
-	void GetView(const std::string viewName, float*&);
+	void getView(const std::string viewName, float*&);
+
+	// update to next step
+	void update() const;
 
 };

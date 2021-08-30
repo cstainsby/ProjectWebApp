@@ -15,7 +15,12 @@ TwoDimSimulation_FluidWrapper::TwoDimSimulation_FluidWrapper(TwoDimSimulation_Fl
 	viewInteractionList.add("YVelocity", &TwoDimSimulation_Fluid::getYVelocity);
 }
 
-void TwoDimSimulation_FluidWrapper::EditSetting(const std::string settingName, float newVal)
+TwoDimSimulation_FluidWrapper::~TwoDimSimulation_FluidWrapper() 
+{
+	delete project;
+}
+
+void TwoDimSimulation_FluidWrapper::setSetting(const std::string settingName, float newVal)
 {
 	settingSetterFunc function;
 
@@ -27,7 +32,7 @@ void TwoDimSimulation_FluidWrapper::EditSetting(const std::string settingName, f
 	}
 }
 
-void TwoDimSimulation_FluidWrapper::GetView(const std::string viewName, float*& view)
+void TwoDimSimulation_FluidWrapper::getView(const std::string viewName, float*& view)
 {
 	viewReturnFunc function;
 
@@ -37,4 +42,14 @@ void TwoDimSimulation_FluidWrapper::GetView(const std::string viewName, float*& 
 	if (found) {
 		(this->project->*function)(view);
 	}
+}
+
+void TwoDimSimulation_FluidWrapper::update() const
+{
+	this->project->nextStep();
+}
+
+void TwoDimSimulation_FluidWrapper::interact(const std::string interactionName, int xCord, int yCord)
+{
+	this->project->addDensity(xCord, yCord);
 }
