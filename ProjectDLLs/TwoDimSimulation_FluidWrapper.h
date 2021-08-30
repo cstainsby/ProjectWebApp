@@ -18,9 +18,10 @@ public:
 	// kv list, key: string identifier, value: view getter functions relating to string
 	typedef void (TwoDimSimulation_Fluid::* viewReturnFunc)(float*&);
 	ArrayListCollection<std::string, viewReturnFunc> viewInteractionList;
-
+	
+	// kv list, key: string identifier, value: view getter functions relating to string
 	typedef void(TwoDimSimulation_Fluid::* userInteractionFunc)(int xCord, int yCord);
-
+	ArrayListCollection<std::string, userInteractionFunc> userInteractionList;
 
 	// use dependancy injection to link a given project with dll calls
 	TwoDimSimulation_FluidWrapper(TwoDimSimulation_Fluid* project);
@@ -34,7 +35,9 @@ public:
 	// get view
 	void getView(const std::string viewName, float*&);
 
+	// interact with the project
+	void interact(const std::string interactionName, int xCord, int yCord);
+
 	// update to next step
 	void update() const;
-
 };
