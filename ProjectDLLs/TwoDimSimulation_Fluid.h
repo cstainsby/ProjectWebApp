@@ -11,13 +11,13 @@ public:
 	void setViscocity(float viscocity);
 	void setDiff(float diff);
 	void setDt(float dt);
-	void setDensityRate();
-	void setXVelocityRate();
-	void setYVelocityRate();
+	void setDensityRate(float densityRate);
+	void setXVelocityRate(float xVelRate);
+	void setYVelocityRate(float yVelRate);
 
 	// interaction function with simulation
-	void addDensity(int x, int y);
-	void addVelocity(int x, int y, float xVel, float yVel);
+	void addDensity(int xCord, int yCord);
+	void addVelocity(int xCord, int yCord);
 
 	// view functions 
 	void getDensity(float*& denArr);

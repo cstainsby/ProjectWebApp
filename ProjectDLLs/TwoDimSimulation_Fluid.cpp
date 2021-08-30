@@ -10,7 +10,7 @@ TwoDimSimulation_Fluid::TwoDimSimulation_Fluid() {
     this->dt = 1;
 
     this->densityRate = 1;
-    this->velocityRate = 1;
+    this->velocityRate = std::pair<float, float>(1.0,1.0);
 
     this->velX = new float[gridArea];
     this->velY = new float[gridArea];
@@ -71,14 +71,14 @@ void TwoDimSimulation_Fluid::nextStep() {
 
 // 
 // add Density
-void TwoDimSimulation_Fluid::addDensity(int x, int y) {
-    density[findIndex(x, y)] += this->densityRate;
+void TwoDimSimulation_Fluid::addDensity(int xCord, int yCord) {
+    density[findIndex(xCord, yCord)] += this->densityRate;
 }
 
 // add velocity
-void TwoDimSimulation_Fluid::addVelocity(int x, int y, float xVel, float yVel) {
-    velX_0[findIndex(x, y)] += xVel;
-    velY_0[findIndex(x, y)] += yVel;
+void TwoDimSimulation_Fluid::addVelocity(int xCord, int yCord) {
+    velX_0[findIndex(xCord, yCord)] += velocityRate.first;
+    velY_0[findIndex(xCord, yCord)] += velocityRate.second;
 }
 
 
@@ -101,16 +101,19 @@ void TwoDimSimulation_Fluid::setDt(float dt)
 }
 
 
-void TwoDimSimulation_Fluid::setDensityRate() {
-
+void TwoDimSimulation_Fluid::setDensityRate(float densityRate) 
+{
+    this->densityRate = densityRate;
 }
 
-void TwoDimSimulation_Fluid::setXVelocityRate() {
-
+void TwoDimSimulation_Fluid::setXVelocityRate(float xVelRate) 
+{
+    this->velocityRate.first = xVelRate;
 }
 
-void TwoDimSimulation_Fluid::setYVelocityRate() {
-
+void TwoDimSimulation_Fluid::setYVelocityRate(float yVelRate) 
+{
+    this->velocityRate.second = yVelRate;
 }
 
 // ------------- display return functions --------------
