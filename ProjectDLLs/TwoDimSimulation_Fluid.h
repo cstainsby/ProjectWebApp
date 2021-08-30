@@ -1,7 +1,7 @@
 #pragma once
 #include "TwoDimSimulationType.h"
 
-class TwoDimSimulation_Fluid : TwoDimSimulationType
+class TwoDimSimulation_Fluid : public TwoDimSimulationType
 {
 public:
 	TwoDimSimulation_Fluid();   // DVC

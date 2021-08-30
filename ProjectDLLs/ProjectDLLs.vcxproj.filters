@@ -18,9 +18,6 @@
     <Filter Include="Resources\DataStructures">
       <UniqueIdentifier>{0a97e19d-e40d-48ac-8e3e-ee62e9e60779}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resources\Boilerplate">
-      <UniqueIdentifier>{d8057ea3-969d-44a4-8eea-ee2239ce2bef}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Projects">
       <UniqueIdentifier>{512208af-f41d-4939-84e0-eaef086ad37d}</UniqueIdentifier>
     </Filter>
@@ -77,17 +74,11 @@
     <ClInclude Include="TwoDimSimulationDLL.h">
       <Filter>Projects\TwoDimSimulation\DLLFacade</Filter>
     </ClInclude>
-    <ClInclude Include="TwoDimSimulation_FluidFacade.h">
+    <ClInclude Include="TwoDimSimulation_FluidWrapper.h">
       <Filter>Projects\TwoDimSimulation\Implementation\Fluid</Filter>
     </ClInclude>
-    <ClInclude Include="Interactable.h">
-      <Filter>Resources\Boilerplate</Filter>
-    </ClInclude>
-    <ClInclude Include="Setting.h">
-      <Filter>Resources\Boilerplate</Filter>
-    </ClInclude>
-    <ClInclude Include="View.h">
-      <Filter>Resources\Boilerplate</Filter>
+    <ClInclude Include="ITwoDimSimulationWrapper.h">
+      <Filter>Projects\TwoDimSimulation</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -109,7 +100,7 @@
     <ClCompile Include="TwoDimSimulationDLL_Export.cpp">
       <Filter>Projects\TwoDimSimulation\DLLFacade</Filter>
     </ClCompile>
-    <ClCompile Include="TwoDimSimulation_FluidFacade.cpp">
+    <ClCompile Include="TwoDimSimulation_FluidWrapper.cpp">
       <Filter>Projects\TwoDimSimulation\Implementation\Fluid</Filter>
     </ClCompile>
   </ItemGroup>

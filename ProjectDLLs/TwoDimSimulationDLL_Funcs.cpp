@@ -3,9 +3,9 @@
 // initializes the project
 void TwoDimSimulationDLL::init(std::string projectName)
 {
-	TwoDimSimulationFactory<TwoDimSimulationType> factory;
+	TwoDimSimulationFactory factory;
 
-	this->project = factory.makeTwoDimSimulation(projectName);
+	this->projectWrapper = factory.makeTwoDimSimulationObj(projectName);
 }
 
 // updates the project state

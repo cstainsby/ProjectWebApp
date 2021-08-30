@@ -3,9 +3,10 @@
 #include "IDLLProject.h"
 #include "TwoDimSimulationType.h"
 #include "TwoDimSimulationFactory.h"
+#include "TwoDimSimulationTypeWrapper.h"
 
 
-class TwoDimSimulationDLL : IDLLProject<float> 
+class TwoDimSimulationDLL : public IDLLProject<float> 
 {
 public:
 	void init(std::string projectName);                              // initializes the project
@@ -16,7 +17,7 @@ public:
 	void release();                                                  // frees the project from memory when finished
 
 private:
-	TwoDimSimulationType project;
+	TwoDimSimulationTypeWrapper* projectWrapper;                     // pointer to specific project wrapper object
 };
 
 // Factory function which creates Project object

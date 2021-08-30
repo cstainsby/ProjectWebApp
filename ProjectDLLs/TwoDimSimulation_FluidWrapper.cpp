@@ -1,6 +1,6 @@
 #include "TwoDimSimulation_FluidWrapper.h"
 
-TwoDimSimulation_FluidWrapper::TwoDimSimulation_FluidWrapper(TwoDimSimulation_Fluid project)
+TwoDimSimulation_FluidWrapper::TwoDimSimulation_FluidWrapper(TwoDimSimulation_Fluid* project)
 {
 	this->project = project;
 
@@ -15,7 +15,7 @@ TwoDimSimulation_FluidWrapper::TwoDimSimulation_FluidWrapper(TwoDimSimulation_Fl
 	viewInteractionList.add("YVelocity", &TwoDimSimulation_Fluid::getYVelocity);
 }
 
-void TwoDimSimulation_FluidWrapper::EditSetting(std::string settingName, float newVal)
+void TwoDimSimulation_FluidWrapper::EditSetting(const std::string settingName, float newVal)
 {
 	settingSetterFunc function;
 
@@ -23,11 +23,11 @@ void TwoDimSimulation_FluidWrapper::EditSetting(std::string settingName, float n
 
 	// if the member function is found then call it using the project object 
 	if (found) {
-		(this->project.*function)(newVal);
+		(this->project->*function)(newVal);
 	}
 }
 
-void TwoDimSimulation_FluidWrapper::GetView(std::string viewName, float*& view)
+void TwoDimSimulation_FluidWrapper::GetView(const std::string viewName, float*& view)
 {
 	viewReturnFunc function;
 
@@ -35,6 +35,6 @@ void TwoDimSimulation_FluidWrapper::GetView(std::string viewName, float*& view)
 
 	// if the member function is found then pass in the view array to have the specifed array state copied in
 	if (found) {
-		(this->project.*function)(view);
+		(this->project->*function)(view);
 	}
 }

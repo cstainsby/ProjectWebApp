@@ -3,22 +3,26 @@
 #include "TwoDimSimulationType.h"
 
 #include "TwoDimSimulation_Fluid.h"
+#include "TwoDimSimulation_FluidWrapper.h"
 
-template<typename projType>
+
 class TwoDimSimulationFactory
 {
 public:
-	projType makeTwoDimSimulation(std::string newSimulationType);
+	TwoDimSimulationTypeWrapper* makeTwoDimSimulationObj(std::string newSimulationType);
 };
 
-template<typename projType>
-projType TwoDimSimulationFactory<projType>::makeTwoDimSimulation(std::string newSimulationType) 
+
+TwoDimSimulationTypeWrapper* TwoDimSimulationFactory::makeTwoDimSimulationObj(std::string newSimulationType)
 {
 	if (newSimulationType.compare("Fluid")) {
-		return new TwoDimSimulation_Fluid();
+		// return the wrapper with ties to the newly created fluid simulation 
+		return new TwoDimSimulation_FluidWrapper(new TwoDimSimulation_Fluid());
 	}
 	else 
 	{
 		return nullptr;
 	}
 }
+
+
