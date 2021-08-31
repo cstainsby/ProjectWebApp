@@ -1,0 +1,263 @@
+﻿  pch.cpp
+  dllmain.cpp
+  TwoDimSimulationDLL.cpp
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\TwoDimSimulationType.h(5,1): error C2011: 'TwoDimSimulationType': 'class' type redefinition
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\TwoDimSimulationType.h(4): message : see declaration of 'TwoDimSimulationType'
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\TwoDimSimulation_Fluid.h(5,1): error C2504: 'TwoDimSimulationType': base class undefined
+  TwoDimSimulation_Fluid.cpp
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\TwoDimSimulation_Fluid.cpp(258,31): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\TwoDimSimulation_Fluid.cpp(259,35): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\TwoDimSimulation_Fluid.cpp(260,35): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\TwoDimSimulation_Fluid.cpp(261,39): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\utility(193,16): warning C4244: 'initializing': conversion from '_Ty' to '_Ty1', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+          and
+          [
+              _Ty1=float
+          ]
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\TwoDimSimulation_Fluid.cpp(13): message : see reference to function template instantiation 'std::pair<float,float>::pair<double,double,0>(_Other1 &&,_Other2 &&) noexcept' being compiled
+          with
+          [
+              _Other1=double,
+              _Other2=double
+          ]
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\TwoDimSimulation_Fluid.cpp(13): message : see reference to function template instantiation 'std::pair<float,float>::pair<double,double,0>(_Other1 &&,_Other2 &&) noexcept' being compiled
+          with
+          [
+              _Other1=double,
+              _Other2=double
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\utility(193,54): warning C4244: 'initializing': conversion from '_Ty' to '_Ty2', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+          and
+          [
+              _Ty2=float
+          ]
+  TwoDimSimulationType.cpp
+  TwoDimSimulation_FluidWrapper.cpp
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\ArrayListCollection.h(76,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\ArrayListCollection.h(72): message : while compiling class template member function 'void ArrayListCollection<std::string,TwoDimSimulation_FluidWrapper::settingSetterFunc>::find(const K &,const K &,ArrayList<K> &) const'
+          with
+          [
+              K=std::string
+          ]
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\TwoDimSimulation_FluidWrapper.h(15): message : see reference to class template instantiation 'ArrayListCollection<std::string,TwoDimSimulation_FluidWrapper::settingSetterFunc>' being compiled
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\ArrayListCollection.h(60,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\ArrayListCollection.h(57): message : while compiling class template member function 'bool ArrayListCollection<std::string,TwoDimSimulation_FluidWrapper::settingSetterFunc>::find(const K &,V &) const'
+          with
+          [
+              K=std::string,
+              V=TwoDimSimulation_FluidWrapper::settingSetterFunc
+          ]
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\TwoDimSimulation_FluidWrapper.cpp(34): message : see reference to function template instantiation 'bool ArrayListCollection<std::string,TwoDimSimulation_FluidWrapper::settingSetterFunc>::find(const K &,V &) const' being compiled
+          with
+          [
+              K=std::string,
+              V=TwoDimSimulation_FluidWrapper::settingSetterFunc
+          ]
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\ArrayListCollection.h(87,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\ArrayListCollection.h(85): message : while compiling class template member function 'void ArrayListCollection<std::string,TwoDimSimulation_FluidWrapper::settingSetterFunc>::keys(ArrayList<K> &) const'
+          with
+          [
+              K=std::string
+          ]
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\ArrayList.h(101,26): warning C4018: '>': signed/unsigned mismatch
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\ArrayList.h(96): message : while compiling class template member function 'bool ArrayList<std::pair<K,V>>::add(size_t,const T &)'
+          with
+          [
+              K=std::string,
+              V=TwoDimSimulation_FluidWrapper::settingSetterFunc,
+              T=std::pair<std::string,TwoDimSimulation_FluidWrapper::settingSetterFunc >
+          ]
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\ArrayListCollection.h(24): message : see reference to class template instantiation 'ArrayList<std::pair<K,V>>' being compiled
+          with
+          [
+              K=std::string,
+              V=TwoDimSimulation_FluidWrapper::settingSetterFunc
+          ]
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\ArrayList.h(151,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\ArrayList.h(148): message : while compiling class template member function 'bool ArrayList<std::pair<K,V>>::remove(size_t)'
+          with
+          [
+              K=std::string,
+              V=TwoDimSimulation_FluidWrapper::settingSetterFunc
+          ]
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\ArrayListCollection.h(51): message : see reference to function template instantiation 'bool ArrayList<std::pair<K,V>>::remove(size_t)' being compiled
+          with
+          [
+              K=std::string,
+              V=TwoDimSimulation_FluidWrapper::settingSetterFunc
+          ]
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\ArrayList.h(76,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\ArrayList.h(70): message : while compiling class template member function 'ArrayList<K> &ArrayList<K>::operator =(const ArrayList<K> &)'
+          with
+          [
+              K=std::string
+          ]
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\ArrayListCollection.h(98): message : see reference to function template instantiation 'ArrayList<K> &ArrayList<K>::operator =(const ArrayList<K> &)' being compiled
+          with
+          [
+              K=std::string
+          ]
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\ArrayListCollection.h(79): message : see reference to class template instantiation 'ArrayList<K>' being compiled
+          with
+          [
+              K=std::string
+          ]
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\ArrayListCollection.h(72): message : while compiling class template member function 'void ArrayListCollection<std::string,TwoDimSimulation_FluidWrapper::settingSetterFunc>::find(const K &,const K &,ArrayList<K> &) const'
+          with
+          [
+              K=std::string
+          ]
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\ArrayList.h(117,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\ArrayList.h(114): message : while compiling class template member function 'void ArrayList<std::pair<K,V>>::resize(void)'
+          with
+          [
+              K=std::string,
+              V=TwoDimSimulation_FluidWrapper::settingSetterFunc
+          ]
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\ArrayList.h(99): message : see reference to function template instantiation 'void ArrayList<std::pair<K,V>>::resize(void)' being compiled
+          with
+          [
+              K=std::string,
+              V=TwoDimSimulation_FluidWrapper::settingSetterFunc
+          ]
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\ArrayListCollection.h(28): message : while compiling class template member function 'void ArrayListCollection<std::string,TwoDimSimulation_FluidWrapper::settingSetterFunc>::add(const K &,const V &)'
+          with
+          [
+              K=std::string,
+              V=TwoDimSimulation_FluidWrapper::settingSetterFunc
+          ]
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\TwoDimSimulation_FluidWrapper.cpp(8): message : see reference to function template instantiation 'void ArrayListCollection<std::string,TwoDimSimulation_FluidWrapper::settingSetterFunc>::add(const K &,const V &)' being compiled
+          with
+          [
+              K=std::string,
+              V=TwoDimSimulation_FluidWrapper::settingSetterFunc
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\utility(369,1): error C2296: '<': illegal, left operand has type 'const _Ty2'
+          with
+          [
+              _Ty2=TwoDimSimulation_FluidWrapper::settingSetterFunc
+          ]
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\ArrayList.h(267): message : see reference to function template instantiation 'bool std::operator <<K,V>(const std::pair<K,V> &,const std::pair<K,V> &)' being compiled
+          with
+          [
+              K=std::string,
+              V=TwoDimSimulation_FluidWrapper::settingSetterFunc
+          ]
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\ArrayList.h(253): message : while compiling class template member function 'void ArrayList<std::pair<K,V>>::quick_sort(size_t,size_t)'
+          with
+          [
+              K=std::string,
+              V=TwoDimSimulation_FluidWrapper::settingSetterFunc
+          ]
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\ArrayList.h(248): message : see reference to function template instantiation 'void ArrayList<std::pair<K,V>>::quick_sort(size_t,size_t)' being compiled
+          with
+          [
+              K=std::string,
+              V=TwoDimSimulation_FluidWrapper::settingSetterFunc
+          ]
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\ArrayList.h(246): message : while compiling class template member function 'void ArrayList<std::pair<K,V>>::quick_sort(void)'
+          with
+          [
+              K=std::string,
+              V=TwoDimSimulation_FluidWrapper::settingSetterFunc
+          ]
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\ArrayList.h(292): message : see reference to function template instantiation 'void ArrayList<std::pair<K,V>>::quick_sort(void)' being compiled
+          with
+          [
+              K=std::string,
+              V=TwoDimSimulation_FluidWrapper::settingSetterFunc
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\utility(369,1): error C2297: '<': illegal, right operand has type 'const _Ty2'
+          with
+          [
+              _Ty2=TwoDimSimulation_FluidWrapper::settingSetterFunc
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\utility(369,1): error C2296: '<': illegal, left operand has type 'const _Ty2'
+          with
+          [
+              _Ty2=TwoDimSimulation_FluidWrapper::viewReturnFunc
+          ]
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\ArrayList.h(267): message : see reference to function template instantiation 'bool std::operator <<K,V>(const std::pair<K,V> &,const std::pair<K,V> &)' being compiled
+          with
+          [
+              K=std::string,
+              V=TwoDimSimulation_FluidWrapper::viewReturnFunc
+          ]
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\ArrayList.h(253): message : while compiling class template member function 'void ArrayList<std::pair<K,V>>::quick_sort(size_t,size_t)'
+          with
+          [
+              K=std::string,
+              V=TwoDimSimulation_FluidWrapper::viewReturnFunc
+          ]
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\ArrayList.h(248): message : see reference to function template instantiation 'void ArrayList<std::pair<K,V>>::quick_sort(size_t,size_t)' being compiled
+          with
+          [
+              K=std::string,
+              V=TwoDimSimulation_FluidWrapper::viewReturnFunc
+          ]
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\ArrayList.h(246): message : while compiling class template member function 'void ArrayList<std::pair<K,V>>::quick_sort(void)'
+          with
+          [
+              K=std::string,
+              V=TwoDimSimulation_FluidWrapper::viewReturnFunc
+          ]
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\ArrayList.h(292): message : see reference to function template instantiation 'void ArrayList<std::pair<K,V>>::quick_sort(void)' being compiled
+          with
+          [
+              K=std::string,
+              V=TwoDimSimulation_FluidWrapper::viewReturnFunc
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\utility(369,1): error C2297: '<': illegal, right operand has type 'const _Ty2'
+          with
+          [
+              _Ty2=TwoDimSimulation_FluidWrapper::viewReturnFunc
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\utility(369,1): error C2296: '<': illegal, left operand has type 'const _Ty2'
+          with
+          [
+              _Ty2=TwoDimSimulation_FluidWrapper::userInteractionFunc
+          ]
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\ArrayList.h(267): message : see reference to function template instantiation 'bool std::operator <<K,V>(const std::pair<K,V> &,const std::pair<K,V> &)' being compiled
+          with
+          [
+              K=std::string,
+              V=TwoDimSimulation_FluidWrapper::userInteractionFunc
+          ]
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\ArrayList.h(253): message : while compiling class template member function 'void ArrayList<std::pair<K,V>>::quick_sort(size_t,size_t)'
+          with
+          [
+              K=std::string,
+              V=TwoDimSimulation_FluidWrapper::userInteractionFunc
+          ]
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\ArrayList.h(248): message : see reference to function template instantiation 'void ArrayList<std::pair<K,V>>::quick_sort(size_t,size_t)' being compiled
+          with
+          [
+              K=std::string,
+              V=TwoDimSimulation_FluidWrapper::userInteractionFunc
+          ]
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\ArrayList.h(246): message : while compiling class template member function 'void ArrayList<std::pair<K,V>>::quick_sort(void)'
+          with
+          [
+              K=std::string,
+              V=TwoDimSimulation_FluidWrapper::userInteractionFunc
+          ]
+C:\Users\Cpsta\source\repos\ProjectWebApp\ProjectDLLs\ArrayList.h(292): message : see reference to function template instantiation 'void ArrayList<std::pair<K,V>>::quick_sort(void)' being compiled
+          with
+          [
+              K=std::string,
+              V=TwoDimSimulation_FluidWrapper::userInteractionFunc
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\utility(369,1): error C2297: '<': illegal, right operand has type 'const _Ty2'
+          with
+          [
+              _Ty2=TwoDimSimulation_FluidWrapper::userInteractionFunc
+          ]
+  Generating Code...

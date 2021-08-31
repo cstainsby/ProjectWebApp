@@ -30,10 +30,7 @@
     <Filter Include="Projects\TwoDimSimulation\Implementation\Fluid">
       <UniqueIdentifier>{fb9f6d82-e6be-412a-8041-907029186522}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Projects\TwoDimSimulation\Factory">
-      <UniqueIdentifier>{a489c800-1030-47c2-8389-a9cbaa905467}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Projects\TwoDimSimulation\DLLFacade">
+    <Filter Include="Projects\TwoDimSimulation\DLLProjectType">
       <UniqueIdentifier>{79efe828-aea3-492f-a6cb-d80a1d0d133a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -62,9 +59,6 @@
     <ClInclude Include="IDLLProject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TwoDimSimulationFactory.h">
-      <Filter>Projects\TwoDimSimulation\Factory</Filter>
-    </ClInclude>
     <ClInclude Include="TwoDimSimulationType.h">
       <Filter>Projects\TwoDimSimulation</Filter>
     </ClInclude>
@@ -72,12 +66,15 @@
       <Filter>Projects\TwoDimSimulation\Implementation\Fluid</Filter>
     </ClInclude>
     <ClInclude Include="TwoDimSimulationDLL.h">
-      <Filter>Projects\TwoDimSimulation\DLLFacade</Filter>
+      <Filter>Projects\TwoDimSimulation\DLLProjectType</Filter>
     </ClInclude>
     <ClInclude Include="TwoDimSimulation_FluidWrapper.h">
       <Filter>Projects\TwoDimSimulation\Implementation\Fluid</Filter>
     </ClInclude>
-    <ClInclude Include="ITwoDimSimulationWrapper.h">
+    <ClInclude Include="TwoDimSimulationTypeWrapper.h">
+      <Filter>Projects\TwoDimSimulation</Filter>
+    </ClInclude>
+    <ClInclude Include="TwoDimSimulationFactory.h">
       <Filter>Projects\TwoDimSimulation</Filter>
     </ClInclude>
   </ItemGroup>
@@ -94,11 +91,8 @@
     <ClCompile Include="TwoDimSimulation_Fluid.cpp">
       <Filter>Projects\TwoDimSimulation\Implementation\Fluid</Filter>
     </ClCompile>
-    <ClCompile Include="TwoDimSimulationDLL_Funcs.cpp">
-      <Filter>Projects\TwoDimSimulation\DLLFacade</Filter>
-    </ClCompile>
-    <ClCompile Include="TwoDimSimulationDLL_Export.cpp">
-      <Filter>Projects\TwoDimSimulation\DLLFacade</Filter>
+    <ClCompile Include="TwoDimSimulationDLL.cpp">
+      <Filter>Projects\TwoDimSimulation\DLLProjectType</Filter>
     </ClCompile>
     <ClCompile Include="TwoDimSimulation_FluidWrapper.cpp">
       <Filter>Projects\TwoDimSimulation\Implementation\Fluid</Filter>
@@ -112,6 +106,9 @@
       <Filter>Scripts</Filter>
     </None>
     <None Include="EditProject.bat">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="BuildDLL.bat">
       <Filter>Scripts</Filter>
     </None>
   </ItemGroup>

@@ -118,9 +118,6 @@ void TwoDimSimulation_Fluid::setYVelocityRate(float yVelRate)
 
 // ------------- display return functions --------------
 void TwoDimSimulation_Fluid::getDensity(float*& denArr) {
-    // TODO find solution for returning the velocity
-    // possible bug by not deleting the array
-    //delete denArr;
     denArr = new float[gridArea];
 
     for (int i = 0; i < gridArea; ++i) {
@@ -168,9 +165,9 @@ void TwoDimSimulation_Fluid::project(float* u, float* v, float* p, float* div) {
     for (int i = 1; i <= N; ++i) {
         for (int j = 1; j <= N; ++j) {
 
-            div[findIndex(i, j)] = -0.5 * (u[findIndex(i + 1, j)] - u[findIndex(i - 1, j)] + v[findIndex(i, j + 1)] - v[findIndex(i, j - 1)]) / ((float)N);
+            div[findIndex(i, j)] = (float)(-0.5 * (((u[findIndex(i+1, j)]) - (u[findIndex(i-1, j)]) + (v[findIndex(i, j+1)]) - (v[findIndex(i, j-1)])) / N));
 
-            p[findIndex(i, j)] = 0;
+            p[findIndex(i, j)] = 0.0;
         }
     }
     setBoundary(0, div);
@@ -190,8 +187,8 @@ void TwoDimSimulation_Fluid::project(float* u, float* v, float* p, float* div) {
     // find new velocity vectors
     for (int i = 1; i <= N; ++i) {
         for (int j = 1; j <= N; ++j) {
-            u[findIndex(i, j)] -= 0.5 * (p[findIndex(i + 1, j)] - p[findIndex(i - 1, j)]) / ((float)N);
-            v[findIndex(i, j)] -= 0.5 * (p[findIndex(i, j + 1)] - p[findIndex(i, j - 1)]) / ((float)N);
+            u[findIndex(i, j)] -= (float)(0.5 * ((p[findIndex(i + 1, j)] - p[findIndex(i - 1, j)]) / N));
+            v[findIndex(i, j)] -= (float)(0.5 * ((p[findIndex(i, j + 1)] - p[findIndex(i, j - 1)]) / N));
         }
     }
     setBoundary(1, u);
@@ -213,10 +210,10 @@ void TwoDimSimulation_Fluid::advect(int b, float* d, float* d_0, float* u, float
             yVel = jfloat - (dt0 * v[findIndex(i, j)]);
 
             if (xVel < 0.5) { xVel = 0.5; }
-            if (xVel > (float)N + 0.5) { xVel = (float)N + 0.5; }
+            if (xVel > (float)N + 0.5) { xVel = (float)(N + 0.5); }
 
             if (yVel < 0.5) { yVel = 0.5; }
-            if (yVel > (float)N + 0.5) { yVel = (float)N + 0.5; }
+            if (yVel > (float)N + 0.5) { yVel = (float)(N + 0.5); }
 
             // i0 and j0 will be the floors of x and y respectivly, i1 and j1 will be the ceilings
             i0 = (int)xVel;
@@ -258,8 +255,8 @@ void TwoDimSimulation_Fluid::setBoundary(int b, float* x) {
     }
 
     // find corner squares values
-    x[findIndex(0, 0)] = 0.5 * (x[findIndex(1, 0)] + x[findIndex(0, 1)]);
-    x[findIndex(0, N + 1)] = 0.5 * (x[findIndex(1, N + 1)] + x[findIndex(0, N)]);
-    x[findIndex(N + 1, 0)] = 0.5 * (x[findIndex(N, 0)] + x[findIndex(N + 1, 1)]);
-    x[findIndex(N + 1, N + 1)] = 0.5 * (x[findIndex(N, N + 1)] + x[findIndex(N + 1, N)]);
+    x[findIndex(0, 0)] = (0.5 * (x[findIndex(1, 0)] + x[findIndex(0, 1)]));
+    x[findIndex(0, N + 1)] = (0.5 * (x[findIndex(1, N + 1)] + x[findIndex(0, N)]));
+    x[findIndex(N + 1, 0)] = (0.5 * (x[findIndex(N, 0)] + x[findIndex(N + 1, 1)]));
+    x[findIndex(N + 1, N + 1)] = (0.5 * (x[findIndex(N, N + 1)] + x[findIndex(N + 1, N)]));
 }

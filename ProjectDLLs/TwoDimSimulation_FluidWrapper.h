@@ -1,5 +1,4 @@
 #pragma once
-#include "pch.h"
 #include "TwoDimSimulationTypeWrapper.h"
 #include "TwoDimSimulation_Fluid.h"
 
