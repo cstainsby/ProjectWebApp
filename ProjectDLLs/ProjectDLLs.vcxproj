@@ -88,7 +88,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;PROJECTDLLS_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
@@ -154,18 +154,22 @@
     <ClInclude Include="ArrayList.h" />
     <ClInclude Include="ArrayListCollection.h" />
     <ClInclude Include="Collection.h" />
+    <ClInclude Include="TwoDimSimulationTypeWrapper.h" />
+    <ClInclude Include="TwoDimSimulationDLL.h" />
     <ClInclude Include="HashTableCollection.h" />
+    <ClInclude Include="IDLLProject.h" />
     <ClInclude Include="List.h" />
+    <ClInclude Include="TwoDimSimulationFactory.h" />
     <ClInclude Include="TwoDimSimulation_Fluid.h" />
     <ClInclude Include="framework.h" />
-    <ClInclude Include="GenericDLLProj.h" />
     <ClInclude Include="TwoDimSimulationType.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="TwoDimSimulation_FluidWrapper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="TwoDimSimulation_Fluid_Exports.cpp" />
-    <ClCompile Include="TwoDimSimulation_Fluid_Functions.cpp" />
+    <ClCompile Include="TwoDimSimulationDLL.cpp" />
+    <ClCompile Include="TwoDimSimulation_Fluid.cpp" />
     <ClCompile Include="TwoDimSimulationType.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -173,9 +177,11 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="TwoDimSimulation_FluidWrapper.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="AddProject.bat" />
+    <None Include="BuildDLL.bat" />
     <None Include="DeleteProject.bat" />
     <None Include="EditProject.bat" />
   </ItemGroup>

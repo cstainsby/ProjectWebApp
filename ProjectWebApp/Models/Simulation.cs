@@ -21,10 +21,6 @@ namespace ProjectWebApp.Models
         [DataType(DataType.Url)]
         public string gitURL { get; set; }
 
-        [Display(Name="Dimensions (2 or 3)")]
-        [Range(2,3)]
-        public int dimensions { get; set; }
-
         public Simulation()
         {
             simName = "";

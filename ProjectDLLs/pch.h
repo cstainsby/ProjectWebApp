@@ -35,5 +35,6 @@
 
 #include <string>
 #include "ArrayListCollection.h"
+#include "HashTableCollection.h"
 
 #endif //PCH_H
